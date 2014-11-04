@@ -10,9 +10,9 @@ import Subject.Subject;
 
 public class GameUi extends Ui{
 
-	public GameUi(Difficulty dificulty, Player player) {
-		super(dificulty, player);
-		dificulty.attach(this);
+	public GameUi(Difficulty difficulty, Player player) {
+		super(difficulty, player);
+		difficulty.attach(this);
 		player.attach(this);
 		System.out.println("Game Ui attached");
 		super.currentScreen = this;

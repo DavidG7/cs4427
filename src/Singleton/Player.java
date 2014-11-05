@@ -122,8 +122,12 @@ public class Player implements Subject {
 	public int[] getPlayerCoordinates() {
 		return playerCoordinates;
 	}
-	
-	public Color getColor() {
+
+    public int getPlayerXCoordinate() { return xPosition ; }
+
+    public int getPlayerYCoordinate() { return yPosition ; }
+
+    public Color getColor() {
 		return playerColor;
 	}
 

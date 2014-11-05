@@ -119,13 +119,13 @@ public class Player implements Subject {
 		notifyObservers();
 	}
 
-	public int[] getPlayerCoordinates() {
-		return playerCoordinates;
-	}
-
     public int getPlayerXCoordinate() { return xPosition ; }
 
     public int getPlayerYCoordinate() { return yPosition ; }
+
+    public void resetPlayerCoordinates() {
+        xPosition = 0 ; yPosition = 0 ;
+    }
 
     public Color getColor() {
 		return playerColor;

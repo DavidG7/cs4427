@@ -61,11 +61,14 @@ public class GameUi extends Ui {
                 }else{
                     squares[i][j].setBackground(Color.WHITE);
                 }
+
                 squares[0][0].setBackground(player.getColor());
                 panel.add(squares[i][j]);
             }
 
         }
+        squares[8][8].setBackground(Color.GREEN);
+
         JTextArea diff = new JTextArea();
         diff.setText("Difficulty");
         panel.add(diff);
@@ -112,14 +115,15 @@ public class GameUi extends Ui {
 
             }
         });
+
     }
 
     @Override
     public void update(Subject subject) {
         // TODO Auto-generated method stub
         // System.out.println(player.getPlayerCoordinates()[0]);
-        System.out.println("X:" + player.getPlayerCoordinates()[0]);
-        System.out.println("Y:" + player.getPlayerCoordinates()[1]);
+        System.out.println("X:" + player.getPlayerXCoordinate());
+        System.out.println("Y:" + player.getPlayerYCoordinate());
         updateMaze();
     }
 
@@ -132,10 +136,20 @@ public class GameUi extends Ui {
                     .setBackground(Color.WHITE);
         }
 
+
         squares[player.getPlayerXCoordinate()][player.getPlayerYCoordinate()]
                 .setBackground(player.getColor());
-        System.out.println("will the UI please update");
         lastPlayerCoordinates[0] = player.getPlayerXCoordinate();
         lastPlayerCoordinates[1] = player.getPlayerYCoordinate();
+
+        if(player.getPlayerXCoordinate() == 8 && player.getPlayerYCoordinate() == 8){
+            player.resetPlayerCoordinates();
+            JOptionPane jop = new JOptionPane();
+            jop.showMessageDialog(this, "Success, you have successfully navigated the Maze!!!");
+            this.dispose() ;
+            Ui userInterface = new MenuUi(difficulty, player);
+            userInterface.draw();
+        }
     }
+
 }

@@ -19,6 +19,7 @@ import MouseListener.CustomMouseListener;
 import Singleton.Player;
 import Subject.Difficulty;
 import Subject.Subject;
+import UI.GameUi;
 
 public class MenuUi extends Ui {
 
@@ -62,6 +63,14 @@ public class MenuUi extends Ui {
 		panel.add(exit);
 		add(panel);
 		setVisible(true);
+
+        start.addMouseListener(new CustomMouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                setUserInterface(new GameUi(difficulty, player));
+                MenuUi.this.dispose();
+            }
+        });
 
 		options.addMouseListener(new CustomMouseListener() {
 			@Override

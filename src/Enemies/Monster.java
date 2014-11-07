@@ -1,99 +1,44 @@
 package Enemies;
 
+
+
 import java.awt.Color;
 
 import Observer.Enemy;
 import Singleton.Player;
+
 import State.EasyMoveState;
 import State.HardMoveState;
 import State.MediumMoveState;
-import State.State;
 import Subject.Difficulty;
 import Subject.Subject;
 
+
 public class Monster extends Enemy {
 
-	private int rowPosition;
-	private int colPosition;
-	private boolean isSpotted = false;
-	private Color monsterColor;
-
-	public Monster(Difficulty difficulty, Player player,int[] enemyCoordinates) {
-		difficulty.attach(this);
-		player.attach(this);
-		System.out.println("Monster attached to difficulty and player");
-		super.enemyMoveState = new EasyMoveState();
-		super.player = player;
-		monsterColor = Color.ORANGE;
-		colPosition = enemyCoordinates[0];
-		rowPosition = enemyCoordinates[1];
-        System.out.println("Monster at " + rowPosition + " " + colPosition);
+	public Monster(Difficulty difficulty, Player player, int[] enemyCoordinates) {
+		// TODO Auto-generated constructor stub
+		super(difficulty, player, enemyCoordinates);
+		enemyColor = Color.RED;
+        System.out.println("Monster at position: " + enemyCoordinates[0] + ","+ enemyCoordinates[1]);
 	}
 
 	@Override
 	public void update(Subject subject) {
 		// TODO Auto-generated method stub
-		
 		if (subject instanceof Difficulty) {
 			int difficulty = ((Difficulty) subject).getDifficulty();
 			if (difficulty == 0) {
-				super.enemyMoveState = new EasyMoveState();
+				enemyMoveState = new EasyMoveState();
 			} else if (difficulty == 1) {
-				super.enemyMoveState = new MediumMoveState();
+				enemyMoveState = new MediumMoveState();
 			} else {
-				super.enemyMoveState = new HardMoveState();
+				enemyMoveState = new HardMoveState();
 			}
 			System.out.println("Monster movement updated to " + difficulty);
 		} else if (subject instanceof Player) {
 			move();
 		}
-		
 	}
-
-	@Override
-	public void move() {
-		// TODO Auto-generated method stub
-		super.enemyMoveState.move(this);
-	}
-
 	
-
-	@Override
-	public void setIsSpotted(boolean spotted) {
-		// TODO Auto-generated method stub
-		this.isSpotted = spotted;
-	}
-
-	@Override
-	public boolean getIsSpotted() {
-		// TODO Auto-generated method stub
-		return isSpotted;
-	}
-
-	@Override
-	public int getEnemyRowPosition() {
-		// TODO Auto-generated method stub
-		return rowPosition;
-	}
-
-	@Override
-	public int getEnemyColPosition() {
-		// TODO Auto-generated method stub
-		return colPosition;
-	}
-
-	@Override
-	public Color getColor() {
-		// TODO Auto-generated method stub
-		return monsterColor;
-	}
-
-
-	@Override
-	public void setEnemyCoordinates(int[] positions) {
-		// TODO Auto-generated method stub
-		this.rowPosition = positions[0];
-		this.colPosition = positions[1];
-	}
-
 }

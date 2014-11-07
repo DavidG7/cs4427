@@ -10,17 +10,17 @@ public class Player implements Subject {
 
 	private static Player playerInstance = new Player();
 	private ArrayList playerObservers;
-	private int xPosition;
-	private int yPosition;
+	private int rowPosition;
+	private int colPosition;
 	private Color playerColor;
 	private int[] previousPosition = {0,0};
 
 	private Player() {
 		playerObservers = new ArrayList();
-		xPosition = 0;// players initial position is set to (0,0)
-		yPosition = 0;// of the maze/grid
+		rowPosition = 0;// players initial position is set to (0,0)
+		colPosition = 0;// of the maze/grid
 		playerColor = Color.BLUE;// player is blue
-		System.out.println("Player at " + xPosition + " " + yPosition);
+		System.out.println("Player at " + rowPosition + " " + colPosition);
 	}
 
 	public static Player getInstance() {
@@ -53,8 +53,8 @@ public class Player implements Subject {
 	}
 
 	public void move(String direction) {
-		previousPosition[0] = xPosition;
-		previousPosition[1] = yPosition;
+		previousPosition[0] = rowPosition;
+		previousPosition[1] = colPosition;
 		if (direction.equals("UP")) {
 			moveUp();
 		} else if (direction.equals("DOWN")) {
@@ -69,10 +69,10 @@ public class Player implements Subject {
 
 	public void moveRight() {
 		// validate if possible to move in this direction
-		if (yPosition != 9) {
-			yPosition++;
-			System.out.println("Player moves right, new position is " + xPosition
-					+ "," + yPosition);
+		if (colPosition != 9) {
+			colPosition++;
+			System.out.println("Player moves right, new position is " + rowPosition
+					+ "," + colPosition);
 		} else {
 			System.out.println("Not possible to move right");
 		}
@@ -81,10 +81,10 @@ public class Player implements Subject {
 
 	public void moveLeft() {
 		// validate if possible to move in this direction
-		if (yPosition != 0) {
-			yPosition--;
+		if (colPosition != 0) {
+			colPosition--;
 			System.out.println("Player moves left, new position is "
-					+ xPosition + "," + yPosition);
+					+ rowPosition + "," + colPosition);
 		} else {
 			System.out.println("Not possible to move left");
 		}
@@ -93,10 +93,10 @@ public class Player implements Subject {
 
 	public void moveDown() {
 		// validate if possible to move in this direction
-		if (xPosition != 9) {
-			xPosition++;
+		if (rowPosition != 9) {
+			rowPosition++;
 			System.out.println("Player moves down, new position is "
-					+ xPosition + "," + yPosition);
+					+ rowPosition + "," + colPosition);
 		} else {
 			System.out.println("Not possible to move down");
 		}
@@ -105,28 +105,23 @@ public class Player implements Subject {
 
 	public void moveUp() {
 		// validate if possible to move in this direction
-		if (xPosition != 0) {
-			xPosition--;
+		if (rowPosition != 0) {
+			rowPosition--;
 			System.out.println("Player moves up, new position is "
-					+ xPosition + "," + yPosition);
+					+ rowPosition + "," + colPosition);
 		} else {
 			System.out.println("Not possible to move up");
 		}
 	
 	}
 
-	public void shineTorch() {
-		// make grid two grid positions in all directions visible
-		System.out.println("Player shines torch");
-		notifyObservers();
-	}
 
-	public int getPlayerXCoordinate() {
-		return xPosition;
+	public int getPlayerRowCoordinate() {
+		return rowPosition;
 	}
 	
-	public int getPlayerYCoordinate() {
-		return yPosition;
+	public int getPlayerColCoordinate() {
+		return colPosition;
 	}
 	
 	public Color getColor() {
@@ -135,8 +130,8 @@ public class Player implements Subject {
 
 	public void resetPlayerCoordinates() {
 		// TODO Auto-generated method stub
-		xPosition = 0;
-		yPosition = 0;
+		rowPosition = 0;
+		colPosition = 0;
 	}
 	
 	public int[] getPreviousPosition() {

@@ -2,9 +2,9 @@ package UI;
 
 import javax.swing.*;
 
-import Command.Invoker;
+
+import Command.MovePlayerInvoker;
 import Command.PlayerMoveCommand;
-import Command.PlayerShineTorchCommand;
 import Factory.EnemyFactory;
 
 import Observer.Enemy;
@@ -24,31 +24,26 @@ public class GameUi extends Ui {
 	private static final int INT_ROWS = 10;
 	private static final int INT_COLS = 10;
 	private Player player;
-	private Invoker playerInvoker;
+	private MovePlayerInvoker playerInvoker;
 	private PlayerMoveCommand move;
-	private PlayerShineTorchCommand shineTorch;
 	private JPanel[][] squares;
 	private JPanel panel;
-
 
 	public GameUi(Difficulty difficulty, Player player, Enemy[] enemies) {
 		// TODO Auto-generated constructor stub
 		super(difficulty, player, enemies);
 		super.currentScreen = this;
-		
-		//ATTACH AS OBSERVER TO DIFFICULTY AND PLAYER
+
+		// ATTACH AS OBSERVER TO DIFFICULTY AND PLAYER
 		difficulty.attach(this);
 		player.attach(this);
 		System.out.println("Game Ui attached to difficulty and player");
 
 		this.player = player;
 		move = new PlayerMoveCommand(player);
-		playerInvoker = new Invoker();
-		shineTorch = new PlayerShineTorchCommand(player);
+		playerInvoker = new MovePlayerInvoker(move);
 		panel = new JPanel();
 	}
-
-
 
 	@Override
 	public void draw() {
@@ -58,13 +53,12 @@ public class GameUi extends Ui {
 		setResizable(true);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
+
 		setFocusable(true);
 		setVisible(true);
 		panel.setLayout(new GridLayout(INT_ROWS + 1, INT_COLS + 1));
 		squares = new JPanel[INT_ROWS][INT_COLS];
-        resetGrid(true);
-		
+		resetGrid(true);
 
 		squares[GOAL][GOAL].setBackground(Color.GREEN);
 
@@ -94,24 +88,19 @@ public class GameUi extends Ui {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				// TODO Auto-generated method stub
-
-				playerInvoker.setCommand(move);
 				int c = e.getKeyCode();
 				if (c == KeyEvent.VK_UP) {
 					move.setDirection("UP");
-					playerInvoker.buttonPressed();
+					playerInvoker.arrowKeyPressed();
 				} else if (c == KeyEvent.VK_DOWN) {
 					move.setDirection("DOWN");
-					playerInvoker.buttonPressed();
+					playerInvoker.arrowKeyPressed();
 				} else if (c == KeyEvent.VK_LEFT) {
 					move.setDirection("LEFT");
-					playerInvoker.buttonPressed();
+					playerInvoker.arrowKeyPressed();
 				} else if (c == KeyEvent.VK_RIGHT) {
 					move.setDirection("RIGHT");
-					playerInvoker.buttonPressed();
-				} else if (c == KeyEvent.VK_ENTER) {
-					playerInvoker.setCommand(shineTorch);
-					playerInvoker.buttonPressed();
+					playerInvoker.arrowKeyPressed();
 				}
 			}
 
@@ -130,7 +119,7 @@ public class GameUi extends Ui {
 	}
 
 	public void updateMaze() {
-	
+
 		resetGrid(false);
 
 		for (int i = 0; i < super.enemies.length; i++) {
@@ -141,14 +130,14 @@ public class GameUi extends Ui {
 
 		squares[9][9].setBackground(Color.GREEN);
 
-		squares[player.getPlayerXCoordinate()][player.getPlayerYCoordinate()]
+		squares[player.getPlayerRowCoordinate()][player.getPlayerColCoordinate()]
 				.setBackground(player.getColor());
 
 		/*
 		 * WESLEYS CODE
 		 */
-		if (player.getPlayerXCoordinate() == 9
-				&& player.getPlayerYCoordinate() == 9) {
+		if (player.getPlayerRowCoordinate() == 9
+				&& player.getPlayerColCoordinate() == 9) {
 			player.resetPlayerCoordinates();
 			super.enemies[0].setEnemyCoordinates(Enemy.randomEnemyPosition());
 			super.enemies[1].setEnemyCoordinates(Enemy.randomEnemyPosition());
@@ -162,26 +151,24 @@ public class GameUi extends Ui {
 		}
 
 	}
-	
-	
-	public void resetGrid(boolean needToInitialze){
+
+	public void resetGrid(boolean needToInitialze) {
 		for (int i = 0; i < INT_ROWS; i++) {
 			for (int j = 0; j < INT_COLS; j++) {
-				if(needToInitialze)
-				squares[i][j] = new JPanel();
+				if (needToInitialze)
+					squares[i][j] = new JPanel();
 				if ((i + j) % 2 != 0) {
 					squares[i][j].setBackground(Color.BLACK);
 				} else {
 					squares[i][j].setBackground(Color.WHITE);
 				}
-				if(needToInitialze){
-				squares[0][0].setBackground(player.getColor());
+				if (needToInitialze) {
+					squares[0][0].setBackground(player.getColor());
 
-				panel.add(squares[i][j]);
+					panel.add(squares[i][j]);
 				}
 			}
 		}
 	}
-
 
 }

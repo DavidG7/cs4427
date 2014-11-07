@@ -26,7 +26,6 @@ public class DifficultyUi extends Ui {
 	public DifficultyUi(Difficulty dificulty, Player player,Enemy[] enemies) {
 		super(dificulty, player,enemies);
 		dificulty.attach(this);
-		player.attach(this);
 		System.out.println("Difficulty Ui attached");
 		// TODO Auto-generated constructor stub
 		super.currentScreen = this;
@@ -76,7 +75,9 @@ public class DifficultyUi extends Ui {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
+				displayDifficulty = "EASY";
 				difficulty.setDifficulty(0);
+			
 			}
 		});
 
@@ -86,6 +87,7 @@ public class DifficultyUi extends Ui {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				// TODO Auto-generated method stub
+				displayDifficulty = "MEDIUM";
 				difficulty.setDifficulty(1);
 			}
 		});
@@ -95,6 +97,7 @@ public class DifficultyUi extends Ui {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				// TODO Auto-generated method stub
+				displayDifficulty = "HARD";
 				difficulty.setDifficulty(2);
 			}
 		});
@@ -114,14 +117,10 @@ public class DifficultyUi extends Ui {
 	@Override
 	public void update(Subject subject) {
 		// TODO Auto-generated method stub
-		if (subject instanceof Difficulty) {
+		    System.out.println("DISPLAY DIFFICULTY IS " + displayDifficulty);
 			int difficulty = ((Difficulty) subject).getDifficulty();
-			System.out.println("Ui updated! new difficulty is " + difficulty);
-			difficultyLED.setText("DIFFICULTY : "
-					+ ((Difficulty) subject).getDifficultyText());
-		} else if (subject instanceof Player) {
-			System.out.println("Draw scene");
-		}
+			difficultyLED.setText("DIFFICULTY : "+ displayDifficulty);
+	
 	}
 
 

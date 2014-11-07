@@ -7,19 +7,20 @@ import Singleton.Player;
 
 public class HardMoveState implements State {
 
-	Player player;
+	private Player player;
 
 	@Override
 	public void move(Enemy enemy) {
 		// TODO Auto-generated method stub
 		player = enemy.player;
 		System.out.println("Move");
-		enemy.setEnemyCoordinates(search(player.getPreviousPosition()[0],player.getPreviousPosition()[1],enemy.getEnemyRowPosition(),
+		System.out.println(player.getPlayerRowCoordinate());
+		enemy.setEnemyCoordinates(bfssearch(player.getPreviousPosition()[0],player.getPreviousPosition()[1],enemy.getEnemyRowPosition(),
 				enemy.getEnemyColPosition()));
 
 	}
 
-	public int[] search(int playerRow, int playerCol, int enemyRow, int enemyCol) {
+	public int[] bfssearch(int playerRow, int playerCol, int enemyRow, int enemyCol) {
 
 		if (enemyRow < playerRow) {
 			enemyRow++;

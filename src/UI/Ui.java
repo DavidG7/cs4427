@@ -13,10 +13,12 @@ import Subject.Difficulty;
 
 
 public abstract class Ui extends JFrame implements Observer{
-	Player player;
-	Difficulty difficulty;
-    Ui currentScreen;
-    Enemy[] enemies;
+	protected Player player;
+	protected Difficulty difficulty;
+    protected Ui currentScreen;
+    protected Enemy[] enemies;
+    protected static String displayDifficulty = "EASY";
+    
 	
 	public Ui(Difficulty dificulty, Player player,Enemy[] enemies){
 		this.difficulty = dificulty;

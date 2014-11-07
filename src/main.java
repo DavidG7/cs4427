@@ -26,21 +26,27 @@ public class main
     	Difficulty difficulty = new Difficulty();
         Player player = Player.getInstance();
        
-        enemies = new Enemy[3];
         EnemyFactory monsterFactory = new EnemyFactory();
-        Enemy monster = monsterFactory.createEnemy("Monster", difficulty,player,Enemy.randomEnemyPosition());
-        Enemy zombie = monsterFactory.createEnemy("Zombie", difficulty,player,Enemy.randomEnemyPosition());
-        Enemy scaryZombie = monsterFactory.createEnemy("Zombie", difficulty,player,Enemy.randomEnemyPosition());
-        enemies[0] = monster;
-        enemies[1] = zombie;
-        enemies[2] = scaryZombie;
-
-        Ui userInterface = new MenuUi(difficulty, player,enemies);
+        Enemy[] monsters = monsterFactory.createEnemy("Monster", difficulty,player,2);
+        Enemy[] zombies = monsterFactory.createEnemy("Zombie", difficulty,player,2);
+        
+        Enemy[] enemies = concat(zombies,monsters);
+     
+        Ui userInterface = new MenuUi(difficulty, player, enemies);
         userInterface.draw();
         
     	
     }
     
+    
+    public static Enemy[] concat(Enemy[] A, Enemy[] B) {
+    	   int aLen = A.length;
+    	   int bLen = B.length;
+    	   Enemy[] enemies= new Enemy[aLen+bLen];
+    	   System.arraycopy(A, 0, enemies, 0, aLen);
+    	   System.arraycopy(B, 0, enemies, aLen, bLen);
+    	   return enemies;
+    	}
     
    
 }

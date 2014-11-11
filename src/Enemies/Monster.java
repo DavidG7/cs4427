@@ -11,6 +11,9 @@ import State.State;
 import Subject.Difficulty;
 import Subject.Subject;
 
+/*
+A Monster enemy
+ */
 public class Monster extends Enemy {
 
 	private int xPosition;
@@ -19,6 +22,13 @@ public class Monster extends Enemy {
 	private boolean isSpotted = false;
 	private Color monsterColor;
 
+	/*
+	Creates a Monster object
+
+	@param difficulty	the difficulty the Enemy is to be set to
+	@param player		an instance of the Player
+	@param playerCoordinates	the current location of the Player
+	 */
 	public Monster(Difficulty difficulty, Player player,int[] playerCoordinates) {
 		difficulty.attach(this);
 		player.attach(this);
@@ -61,12 +71,18 @@ public class Monster extends Enemy {
 		return super.enemyMoveState;
 	}
 
+	/*
+	@param spotted	sets if the Monster object has been spotted
+	 */
 	@Override
 	public void setIsSpotted(boolean spotted) {
 		// TODO Auto-generated method stub
 		this.isSpotted = spotted;
 	}
 
+	/*
+	@return true if the Monster object has been spotted by the player or false if it has not
+	 */
 	@Override
 	public boolean getIsSpotted() {
 		// TODO Auto-generated method stub

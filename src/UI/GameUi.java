@@ -25,6 +25,12 @@ public class GameUi extends Ui {
     JPanel[][] squares;
     int[] lastPlayerCoordinates = { 0, 0 };
 
+    /*
+    Creates a the game user interface
+
+	@param difficulty	the current difficulty
+	@param player		an instance of the Player
+     */
     public GameUi(Difficulty difficulty, Player player) {
         super(difficulty, player);
         difficulty.attach(this);

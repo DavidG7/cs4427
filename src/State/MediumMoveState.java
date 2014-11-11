@@ -5,6 +5,9 @@ import Observer.Enemy;
 
 public class MediumMoveState implements State{
 
+	/*
+	@param enemy	an enemy object
+	 */
 	@Override
 	public void move(Enemy enemy) {
 		// TODO Auto-generated method stub

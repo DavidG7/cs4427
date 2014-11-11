@@ -11,6 +11,10 @@ import State.State;
 import Subject.Difficulty;
 import Subject.Subject;
 
+/*
+A Zombie enemy
+ */
+
 public class Zombie extends Enemy {
 
 	private int xPosition;
@@ -19,6 +23,13 @@ public class Zombie extends Enemy {
 	private boolean isSpotted = false;
 	private Color zombieColor;
 
+	/*
+	Creates a Zombie object
+
+	@param difficulty	the difficulty the Enemy is to be set to
+	@param player		an instance of the Player
+	@param playerCoordinates	the current location of the Player
+	 */
 	public Zombie(Difficulty difficulty, Player player, int[] playerCoordinates) {
 		difficulty.attach(this);
 		player.attach(this);
@@ -60,12 +71,18 @@ public class Zombie extends Enemy {
 		return super.enemyMoveState;
 	}
 
+	/*
+	@param spotted	sets if the Zombie object has been spotted
+	 */
 	@Override
 	public void setIsSpotted(boolean spotted) {
 		// TODO Auto-generated method stub
 		this.isSpotted = spotted;
 	}
 
+	/*
+	@return true if the Zombie object has been spotted by the player or false if it has not
+	 */
 	@Override
 	public boolean getIsSpotted() {
 		// TODO Auto-generated method stub

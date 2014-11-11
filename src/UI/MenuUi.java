@@ -23,6 +23,12 @@ import UI.GameUi;
 
 public class MenuUi extends Ui {
 
+	/*
+    Creates the menu user interface
+
+	@param dificulty	the current difficulty
+	@param player		an instance of the Player
+     */
 	public MenuUi(Difficulty dificulty, Player player) {
 		super(dificulty, player);
 		// TODO Auto-generated constructor stub

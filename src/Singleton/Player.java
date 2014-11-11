@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import Observer.SystemObserver;
 import Subject.Subject;
 
+/*
+The player
+ */
 public class Player implements Subject {
 
 	private static Player playerInstance = new Player();
@@ -15,6 +18,9 @@ public class Player implements Subject {
 	private int[] playerCoordinates = { xPosition, yPosition };
 	private Color playerColor;
 
+	/*
+	Creates an instance of the Player
+	 */
 	private Player() {
 		playerObservers = new ArrayList();
 		xPosition = 0;// players initial position is set to (0,0)
@@ -23,6 +29,9 @@ public class Player implements Subject {
 		System.out.println("Player at " + xPosition + " " + yPosition);
 	}
 
+	/*
+	@return the current instance of Player
+	 */
 	public static Player getInstance() {
 		return playerInstance;
 	}
@@ -52,6 +61,9 @@ public class Player implements Subject {
 		}
 	}
 
+	/*
+	@param direction	the direction the player wants to move
+	 */
 	public void move(String direction) {
 		if (direction.equals("UP")) {
 			moveUp();
@@ -119,14 +131,23 @@ public class Player implements Subject {
 		notifyObservers();
 	}
 
+	/*
+	@return the current X coordinate of the player
+	 */
     public int getPlayerXCoordinate() { return xPosition ; }
 
+	/*
+	@return the current Y coordinate of the player
+	 */
     public int getPlayerYCoordinate() { return yPosition ; }
 
     public void resetPlayerCoordinates() {
         xPosition = 0 ; yPosition = 0 ;
     }
 
+	/*
+	@return the current color of the player
+	 */
     public Color getColor() {
 		return playerColor;
 	}

@@ -23,9 +23,6 @@ import UI.Ui;
 
 public class main 
 {
-
-	
-	
 	
     public static void main (String[] args) {
     	

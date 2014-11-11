@@ -22,11 +22,16 @@ import Subject.Subject;
 
 public class DifficultyUi extends Ui {
 
+	/*
+	Creates a the difficulty user interface
+
+	@param dificulty	the current difficulty
+	@param player		an instance of the Player
+ */
 	public DifficultyUi(Difficulty dificulty, Player player) {
 		super(dificulty, player);
 		dificulty.attach(this);
 		player.attach(this);
-		System.out.println("Difficulty Ui attached");
 		// TODO Auto-generated constructor stub
 		super.currentScreen = this;
 	}

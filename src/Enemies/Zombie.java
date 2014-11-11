@@ -15,11 +15,10 @@ import Constants.Constants;
 public class Zombie extends Enemy {
 
 	public Zombie(Difficulty difficulty, Player player, int[] enemyCoordinates) {
-		//super(difficulty, player, enemyCoordinates);
-		// TODO Auto-generated constructor stub
+		//super(difficulty, player, enemyCoordinates)
 		difficulty.attach(this);
 		player.attach(this);
-		System.out.println("Zombie attached to difficulty and player");
+		System.out.println(Constants.ATTACH_ZOMBIE);
 		this.enemyMoveState = new EasyMoveState();
 		this.player = player;
 		this.colPosition = enemyCoordinates[0];
@@ -40,7 +39,7 @@ public class Zombie extends Enemy {
 			} else {
 				enemyMoveState = new MediumMoveState();
 			}
-			System.out.println("Monster movement updated to " + difficulty);
+			System.out.println(Constants.ZOMBIE_MOVEMENT + Constants.SPACE + difficulty);
 		} else if (subject instanceof Player) {
 			move(true);
 		}

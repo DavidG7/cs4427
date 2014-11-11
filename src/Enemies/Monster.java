@@ -19,10 +19,9 @@ public class Monster extends Enemy {
 
 	public Monster(Difficulty difficulty, Player player, int[] enemyCoordinates) {
 		// TODO Auto-generated constructor stub
-		//super(difficulty, player, enemyCoordinates);
 		difficulty.attach(this);
 		player.attach(this);
-		System.out.println("Monster attached to difficulty and player");
+		System.out.println(Constants.ATTACH_MONSTER);
 		this.enemyMoveState = new EasyMoveState();
 		this.player = player;
 		this.colPosition = enemyCoordinates[0];
@@ -43,7 +42,7 @@ public class Monster extends Enemy {
 			} else {
 				enemyMoveState = new HardMoveState();
 			}
-			System.out.println("Monster movement updated to " + difficulty);
+			System.out.println(Constants.MONSTER_MOVEMENT + Constants.SPACE + difficulty);
 		} else if (subject instanceof Player) {
 			move(true);
 		}

@@ -11,6 +11,9 @@ public final class Constants {
 	public static final String OPTIONS = "OPTIONS";
 	public static final String EXIT = "EXIT";
 	public static final String DIFFICULTY = "DIFFICULTY";
+	
+	public static final String MONSTER = "MONSTER";
+	public static final String ZOMBIE = "ZOMBIE";
 
 	public static final int SCREEN_DIMENSIONS = 400;
 	public static final String MENU_TITLE = "Menu";
@@ -31,11 +34,19 @@ public final class Constants {
 	public static final String RIGHT = "RIGHT";
 	public static final String LEFT = "LEFT";
 	public static final String BACK = "BACK";
+	public static final String FORWARD = "FORWARD";
 
 	public static final String ATTACH_DIFFICULTYUI = "Difficulty UI attached";
+	public static final String ATTACH_ZOMBIE = "Zombie attached to Difficulty and Player";
+	public static final String ATTACH_MONSTER = "Monster attached to Difficulty and Player";
+	public static final String ZOMBIE_MOVEMENT = "Zombie movement updated to";
+	public static final String MONSTER_MOVEMENT = "Monster movement updated to";
+	public static final String PLAYER_AT= "Player at";
 	
-	public static final int ALLOWED_MOVES = 3;
+	public static final int ALLOWED_MOVES = 20;
 	public static final int DOUBLE_MOVE = 2;
+	public static final int[] START_POSITION = {0,0};
+	
 	/*
 	 * public static final String DOWN = "DOWN"; public static final String
 	 * RIGHT = "RIGHT"; public static final String LEFT = "LEFT"; public static

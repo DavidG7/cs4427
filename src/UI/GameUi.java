@@ -163,13 +163,7 @@ public class GameUi extends Ui {
 		count--;
 		movesLeft.setText(Integer.toString(count));
 		
-		if(count <= 0){
-			for(int i = 0;i<super.enemies.length;i++){
-				DoubleMoveDecorator doubleMove = new DoubleMoveDecorator(super.enemies[i]);
-				doubleMove.update(player);
-			}
-			
-		}
+
 
 		for (int i = 0; i < super.enemies.length; i++) {
 			squares[super.enemies[i].getEnemyRowPosition()][super.enemies[i]

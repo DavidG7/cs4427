@@ -10,6 +10,7 @@ import Observer.Enemy;
 import Observer.Observer;
 import Singleton.Player;
 import Subject.Difficulty;
+import Constants.Constants;
 
 
 public abstract class Ui extends JFrame implements Observer{
@@ -17,7 +18,7 @@ public abstract class Ui extends JFrame implements Observer{
 	protected Difficulty difficulty;
     protected Ui currentScreen;
     protected Enemy[] enemies;
-    protected static String displayDifficulty = "EASY";
+    protected static String displayDifficulty = Constants.EASY_TEXT;
     
 	
 	public Ui(Difficulty dificulty, Player player,Enemy[] enemies){

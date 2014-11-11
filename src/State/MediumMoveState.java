@@ -1,5 +1,6 @@
 package State;
 
+import Constants.Constants;
 import Enemies.Monster;
 import Memento.CareTaker;
 import Memento.EnemyCareTaker;
@@ -15,17 +16,15 @@ public class MediumMoveState implements State {
 		// TODO Auto-generated method stub
 		player = enemy.player;
 	
-		System.out.println("Dont move/Medium");
-		System.out.println(player.getPlayerRowCoordinate());
+		System.out.println(Constants.ENEMEY_MOVES);
 		
-		if(player.isMovedBackOrForward() ){
+		if(player.isMovedBackOrForward().equals("FORWARD")){
 			careTaker.add(enemy.saveStateToMemento());
 		enemy.setEnemyCoordinates(dfssearch(player.getPreviousPosition()[0],player.getPreviousPosition()[1],enemy.getEnemyRowPosition(),
 				enemy.getEnemyColPosition()));
-		}else{
+		}else if(player.isMovedBackOrForward().equals("BACK")) {
 	    enemy.getStateFromMemento(careTaker.get(careTaker.getNumberOfMoves()-1));
 	    careTaker.remove(careTaker.get(careTaker.getNumberOfMoves()-1));
-		System.out.println("Memento Eenemy is at "+ enemy.getEnemyRowPosition()+ " " + enemy.getEnemyColPosition());	
 		}
 	}
 

@@ -15,9 +15,16 @@ import Constants.Constants;
 public class Zombie extends Enemy {
 
 	public Zombie(Difficulty difficulty, Player player, int[] enemyCoordinates) {
-		super(difficulty, player, enemyCoordinates);
+		//super(difficulty, player, enemyCoordinates);
 		// TODO Auto-generated constructor stub
-		enemyColor = Color.ORANGE;
+		difficulty.attach(this);
+		player.attach(this);
+		System.out.println("Zombie attached to difficulty and player");
+		this.enemyMoveState = new EasyMoveState();
+		this.player = player;
+		this.colPosition = enemyCoordinates[0];
+		this.rowPosition = enemyCoordinates[1];
+		this.enemyColor = Color.ORANGE;
 		System.out.println("Zombie at position: " + enemyCoordinates[0] + ","+ enemyCoordinates[1]);
 	}
 

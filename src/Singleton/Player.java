@@ -15,7 +15,7 @@ public class Player implements Subject {
 	private int colPosition;
 	private Color playerColor;
 	private int[] previousPosition = { 0, 0 };
-	private boolean movedBackOrForward = true;
+	private String movedBackOrForward = "FORWARD";
 
 	private Player() {
 		playerObservers = new ArrayList();
@@ -151,12 +151,12 @@ public class Player implements Subject {
 		previousPosition[1] = this.colPosition;
 		this.rowPosition = Memento.getRowState();
 		this.colPosition = Memento.getColState();
-		movedBackOrForward = false;
+		movedBackOrForward = "BACK";
 		notifyObservers();
-		movedBackOrForward = true;
+		movedBackOrForward = "FORWARD";
 	}
 
-	public boolean isMovedBackOrForward() {
+	public String isMovedBackOrForward() {
 		return movedBackOrForward;
 	}
 

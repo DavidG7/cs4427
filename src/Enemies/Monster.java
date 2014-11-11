@@ -19,7 +19,14 @@ public class Monster extends Enemy {
 
 	public Monster(Difficulty difficulty, Player player, int[] enemyCoordinates) {
 		// TODO Auto-generated constructor stub
-		super(difficulty, player, enemyCoordinates);
+		//super(difficulty, player, enemyCoordinates);
+		difficulty.attach(this);
+		player.attach(this);
+		System.out.println("Monster attached to difficulty and player");
+		this.enemyMoveState = new EasyMoveState();
+		this.player = player;
+		this.colPosition = enemyCoordinates[0];
+		this.rowPosition = enemyCoordinates[1];
 		enemyColor = Color.RED;
         System.out.println("Monster at position: " + enemyCoordinates[0] + ","+ enemyCoordinates[1]);
 	}

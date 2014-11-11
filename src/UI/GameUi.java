@@ -5,6 +5,8 @@ import javax.swing.*;
 
 import Command.MovePlayerInvoker;
 import Command.PlayerMoveCommand;
+import Constants.Constants;
+import Decorator.DoubleMoveDecorator;
 import Factory.EnemyFactory;
 
 import Memento.CareTaker;
@@ -26,9 +28,6 @@ import java.util.Random;
 
 public class GameUi extends Ui {
 
-	private static final int GOAL = 9;
-	private static final int INT_ROWS = 10;
-	private static final int INT_COLS = 10;
 	private Player player;
 	private MovePlayerInvoker playerInvoker;
 	private PlayerMoveCommand move;
@@ -36,6 +35,8 @@ public class GameUi extends Ui {
 	private JPanel[][] squares;
 	private JPanel panel;
 	private JButton undoButton;
+	private int count = Constants.ALLOWED_MOVES;
+	JTextArea movesLeft;
 
 	public GameUi(Difficulty difficulty, Player player, Enemy[] enemies) {
 		// TODO Auto-generated constructor stub
@@ -58,27 +59,28 @@ public class GameUi extends Ui {
 	@Override
 	public void draw() {
 		// TODO Auto-generated method stub
-		setTitle("Maze Runner");
-		setSize(400, 400);
-		setResizable(true);
+		setTitle(Constants.GAME_TITLE);
+		setSize(Constants.SCREEN_DIMENSIONS,Constants.SCREEN_DIMENSIONS);
+		setResizable(Constants.TRUE);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-		setFocusable(true);
-		setVisible(true);
-		panel.setLayout(new GridLayout(INT_ROWS + 1, INT_COLS + 1));
-		squares = new JPanel[INT_ROWS][INT_COLS];
-		resetGrid(true);
+		setFocusable(Constants.TRUE);
+		setVisible(Constants.TRUE);
+		panel.setLayout(new GridLayout(Constants.INT_ROWS + 1, Constants.INT_COLS + 1));
+		squares = new JPanel[Constants.INT_ROWS][Constants.INT_COLS];
+		resetGrid(Constants.TRUE);
 
-		squares[GOAL][GOAL].setBackground(Color.GREEN);
+		squares[Constants.GOAL][Constants.GOAL].setBackground(Color.GREEN);
 
-		JTextArea diff = new JTextArea();
-		diff.setText("Difficulty");
-		panel.add(diff);
+		JTextArea difficultyTitle = new JTextArea();
+		difficultyTitle.setText(Constants.DIFFICULTY);
+		panel.add(difficultyTitle);
 
-		JTextArea text = new JTextArea();
-		text.setText(difficulty.getDifficultyText());
-		panel.add(text);
+		JTextArea difficultyLED= new JTextArea();
+		difficultyLED.setText(difficulty.getDifficultyText());
+		panel.add(difficultyLED);
+		
 
 		for (int i = 0; i < super.enemies.length; i++) {
 			squares[super.enemies[i].getEnemyRowPosition()][super.enemies[i]
@@ -87,8 +89,13 @@ public class GameUi extends Ui {
 		}
 		
 		panel.add(undoButton);
-        add(panel);
-       // panel.requestFocusInWindow();
+		
+		movesLeft= new JTextArea();
+		movesLeft.setText(Integer.toString(count));
+		panel.add(movesLeft);
+        
+		add(panel);
+   
         addKeyListener(new KeyListener() {
         	
 			@Override
@@ -102,16 +109,16 @@ public class GameUi extends Ui {
 				careTaker.add(player.saveStateToMemento());
 				int c = e.getKeyCode();
 				if (c == KeyEvent.VK_UP) {
-					move.setDirection("UP");
+					move.setDirection(Constants.UP);
 					playerInvoker.arrowKeyPressed();
 				} else if (c == KeyEvent.VK_DOWN) {
-					move.setDirection("DOWN");
+					move.setDirection(Constants.DOWN);
 					playerInvoker.arrowKeyPressed();
 				} else if (c == KeyEvent.VK_LEFT) {
-					move.setDirection("LEFT");
+					move.setDirection(Constants.LEFT);
 					playerInvoker.arrowKeyPressed();
 				} else if (c == KeyEvent.VK_RIGHT) {
-					move.setDirection("RIGHT");
+					move.setDirection(Constants.RIGHT);
 					playerInvoker.arrowKeyPressed();
 				}
 				
@@ -135,7 +142,7 @@ public class GameUi extends Ui {
 			
 				 }catch(ArrayIndexOutOfBoundsException exception){
 					exception.printStackTrace();
-					System.out.println("No more moves to undo"); 
+					System.out.println(Constants.NO_MORE_MOVE_RESPONSE); 
 				 }
 				
 		    
@@ -152,7 +159,17 @@ public class GameUi extends Ui {
 
 	public void updateMaze() {
 
-		resetGrid(false);
+		resetGrid(Constants.FALSE);
+		count--;
+		movesLeft.setText(Integer.toString(count));
+		
+		if(count <= 0){
+			for(int i = 0;i<super.enemies.length;i++){
+				DoubleMoveDecorator doubleMove = new DoubleMoveDecorator(super.enemies[i]);
+				doubleMove.update(player);
+			}
+			
+		}
 
 		for (int i = 0; i < super.enemies.length; i++) {
 			squares[super.enemies[i].getEnemyRowPosition()][super.enemies[i]
@@ -160,7 +177,7 @@ public class GameUi extends Ui {
 					.getColor());
 		}
 
-		squares[9][9].setBackground(Color.GREEN);
+		squares[Constants.GOAL][Constants.GOAL].setBackground(Color.GREEN);
 
 		squares[player.getPlayerRowCoordinate()][player.getPlayerColCoordinate()]
 				.setBackground(player.getColor());
@@ -168,14 +185,14 @@ public class GameUi extends Ui {
 		/*
 		 * WESLEYS CODE
 		 */
-		if (player.getPlayerRowCoordinate() == 9
-				&& player.getPlayerColCoordinate() == 9) {
+		if (player.getPlayerRowCoordinate() == Constants.GOAL
+				&& player.getPlayerColCoordinate() == Constants.GOAL) {
 			player.resetPlayerCoordinates();
 			super.enemies[0].setEnemyCoordinates(Enemy.randomEnemyPosition());
 			super.enemies[1].setEnemyCoordinates(Enemy.randomEnemyPosition());
 			JOptionPane jop = new JOptionPane();
 			jop.showMessageDialog(this,
-					"Success, you have successfully navigated the Maze!!!");
+					Constants.GAME_PASSED_RESPONSE);
 			this.dispose();
 			Ui userInterface = new MenuUi(difficulty, player, enemies);
 			userInterface.draw();
@@ -185,8 +202,8 @@ public class GameUi extends Ui {
 	}
 
 	public void resetGrid(boolean needToInitialze) {
-		for (int i = 0; i < INT_ROWS; i++) {
-			for (int j = 0; j < INT_COLS; j++) {
+		for (int i = 0; i < Constants.INT_ROWS; i++) {
+			for (int j = 0; j < Constants.INT_COLS; j++) {
 				if (needToInitialze)
 					squares[i][j] = new JPanel();
 				if ((i + j) % 2 != 0) {
@@ -204,8 +221,5 @@ public class GameUi extends Ui {
 		
 	}
 	
-	public void focusLost(FocusEvent e) {
-        throw new StackOverflowError();
-    }
 
 }

@@ -1,9 +1,8 @@
 package State;
 
 import java.util.Vector;
-
 import javax.security.sasl.SaslException;
-
+import Constants.Constants;
 import Memento.CareTaker;
 import Memento.EnemyCareTaker;
 import Observer.Enemy;
@@ -17,17 +16,16 @@ public class HardMoveState implements State {
 	public void move(Enemy enemy) {
 		// TODO Auto-generated method stub
 		player = enemy.player;
-	
-		System.out.println("Move");
-		System.out.println(player.getPlayerRowCoordinate());
-		if(player.isMovedBackOrForward() ){
+	  
+		System.out.println(Constants.ENEMEY_MOVES);
+		
+		if(player.isMovedBackOrForward().equals("FORWARD")){
 		careTaker.add(enemy.saveStateToMemento());
 		enemy.setEnemyCoordinates(bfssearch(player.getPreviousPosition()[0],player.getPreviousPosition()[1],enemy.getEnemyRowPosition(),
 				enemy.getEnemyColPosition()));
-		}else{
+		}else if(player.isMovedBackOrForward().equals("BACK")) {
 	    enemy.getStateFromMemento(careTaker.get(careTaker.getNumberOfMoves()-1));
 	    careTaker.remove(careTaker.get(careTaker.getNumberOfMoves()-1));
-		System.out.println("Memento Eenemy is at "+ enemy.getEnemyRowPosition()+ " " + enemy.getEnemyColPosition());	
 		}
 
 		

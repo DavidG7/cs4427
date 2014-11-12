@@ -6,25 +6,20 @@ import javax.swing.*;
 import Command.MovePlayerInvoker;
 import Command.PlayerMoveCommand;
 import Constants.Constants;
-import Decorator.DoubleMoveDecorator;
-import Factory.EnemyFactory;
 
+import Decorator.wallDecorator;
 import Memento.CareTaker;
-import Memento.PlayerCareTaker;
-import MouseListener.CustomKeyListener;
 import MouseListener.CustomMouseListener;
 import Observer.Enemy;
 import Singleton.Player;
 import Subject.Difficulty;
+import Decorator.wallDecorator;
 import Subject.Subject;
 import java.awt.*;
-import java.awt.event.FocusEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
-import java.util.Random;
 
 public class GameUi extends Ui {
 
@@ -36,12 +31,17 @@ public class GameUi extends Ui {
 	private JPanel panel;
 	private JButton undoButton;
 	private int count = Constants.ALLOWED_MOVES;
+    private Difficulty d ;
+    int c = 5 ;
+    private Enemy[] e;
 	JTextArea movesLeft;
 
 	public GameUi(Difficulty difficulty, Player player, Enemy[] enemies) {
 		// TODO Auto-generated constructor stub
 		super(difficulty, player, enemies);
-		super.currentScreen = this;
+        this.d = difficulty ;
+        this.e = enemies;
+        super.currentScreen = this;
 
 		// ATTACH AS OBSERVER TO DIFFICULTY AND PLAYER
 		difficulty.attach(this);
@@ -91,8 +91,9 @@ public class GameUi extends Ui {
 		panel.add(undoButton);
 		
 		movesLeft= new JTextArea();
-		movesLeft.setText(Integer.toString(count));
+		movesLeft.setText("count" + (Integer.toString(count)));
 		panel.add(movesLeft);
+
         
 		add(panel);
    
@@ -192,6 +193,13 @@ public class GameUi extends Ui {
 			userInterface.draw();
 
 		}
+
+
+        if(count == 0) {
+            System.out.println("Wall Decorator here");
+            wallDecorator Ui = new wallDecorator(this.d, this.player, this.e, this);
+            Ui.draw();
+        }
 
 	}
 

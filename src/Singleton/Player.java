@@ -3,6 +3,7 @@ package Singleton;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import Constants.Constants;
 import Memento.Memento;
 import Observer.Observer;
 import Subject.Subject;
@@ -14,15 +15,16 @@ public class Player implements Subject {
 	private int rowPosition;
 	private int colPosition;
 	private Color playerColor;
-	private int[] previousPosition = { 0, 0 };
-	private boolean movedBackOrForward = true;
+	private int[] previousPosition = Constants.START_POSITION;
+	private String movedBackOrForward = "FORWARD";
 
 	private Player() {
 		playerObservers = new ArrayList();
-		rowPosition = 0;// players initial position is set to (0,0)
+		rowPosition = 0;// players initial position is (0,0)
 		colPosition = 0;// of the maze/grid
 		playerColor = Color.BLUE;// player is blue
-		System.out.println("Player at " + rowPosition + " " + colPosition);
+		System.out.println(Constants.PLAYER_AT + Constants.SPACE + rowPosition
+				+ Constants.SPACE + colPosition);
 	}
 
 	public static Player getInstance() {
@@ -59,13 +61,14 @@ public class Player implements Subject {
 	public void move(String direction) {
 		previousPosition[0] = rowPosition;
 		previousPosition[1] = colPosition;
-		if (direction.equals("UP")) {
+
+		if (direction.equals(Constants.UP)) {
 			moveUp();
-		} else if (direction.equals("DOWN")) {
+		} else if (direction.equals(Constants.DOWN)) {
 			moveDown();
-		} else if (direction.equals("RIGHT")) {
+		} else if (direction.equals(Constants.RIGHT)) {
 			moveRight();
-		} else if (direction.equals("LEFT")) {
+		} else if (direction.equals(Constants.LEFT)) {
 			moveLeft();
 		}
 		notifyObservers();
@@ -135,6 +138,7 @@ public class Player implements Subject {
 		// TODO Auto-generated method stub
 		rowPosition = 0;
 		colPosition = 0;
+		
 	}
 
 	public int[] getPreviousPosition() {
@@ -143,7 +147,7 @@ public class Player implements Subject {
 	}
 
 	public Memento saveStateToMemento() {
-		return new Memento(rowPosition,colPosition);
+		return new Memento(rowPosition, colPosition);
 	}
 
 	public void getStateFromMemento(Memento Memento) {
@@ -151,15 +155,13 @@ public class Player implements Subject {
 		previousPosition[1] = this.colPosition;
 		this.rowPosition = Memento.getRowState();
 		this.colPosition = Memento.getColState();
-		movedBackOrForward = false;
+		movedBackOrForward = "BACK";
 		notifyObservers();
-		movedBackOrForward = true;
+		movedBackOrForward = "FORWARD";
 	}
 
-	public boolean isMovedBackOrForward() {
+	public String isMovedBackOrForward() {
 		return movedBackOrForward;
 	}
-
-	
 
 }

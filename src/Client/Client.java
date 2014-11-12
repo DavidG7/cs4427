@@ -8,7 +8,7 @@ import Observer.Enemy;
 import Singleton.Player;
 
 import Subject.Difficulty;
-
+import Constants.Constants;
 import UI.MenuUi;
 import UI.Ui;
 
@@ -28,8 +28,8 @@ public class Client
         Player player = Player.getInstance();
        
         EnemyFactory monsterFactory = new EnemyFactory();
-        Enemy[] monsters = monsterFactory.createEnemy("Monster", difficulty,player,2);
-        Enemy[] zombies = monsterFactory.createEnemy("Zombie", difficulty,player,2);
+        Enemy[] monsters = monsterFactory.createEnemy(Constants.MONSTER, difficulty,player,1);
+        Enemy[] zombies = monsterFactory.createEnemy(Constants.ZOMBIE, difficulty,player,1);
         
         Enemy[] enemies = concat(zombies,monsters);
      

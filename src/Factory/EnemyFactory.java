@@ -2,6 +2,7 @@ package Factory;
 
 import java.util.Random;
 
+import Constants.Constants;
 import Enemies.Monster;
 import Enemies.Zombie;
 import Observer.Enemy;
@@ -15,10 +16,10 @@ public class EnemyFactory {
 		int[] playerCoordinates;
 		for (int i = 0; i < numberOfEnemies; i++) {
 			playerCoordinates = Enemy.randomEnemyPosition();
-			if (type.equals("Monster")) {
+			if (type.equals(Constants.MONSTER)) {
 				enemies[i] = new Monster(difficulty, player, playerCoordinates);
 				// return new Monster(difficulty,player,playerCoordinates);
-			} else if (type.equals("Zombie")) {
+			} else if (type.equals(Constants.ZOMBIE)) {
 				enemies[i] = new Zombie(difficulty, player, playerCoordinates);
 				// return new Zombie(difficulty,player,playerCoordinates);
 			}

@@ -3,6 +3,7 @@ package Subject;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import Constants.Constants;
 
 import Observer.Observer;
 
@@ -14,10 +15,10 @@ public class Difficulty implements Subject{
 	
 	public Difficulty(){
 		difficultyObservers = new ArrayList();
-		difficulty = 0;
-		difficulties.put(0,"EASY");
-		difficulties.put(1,"MEDIUM");
-		difficulties.put(2,"HARD");
+		difficulty = Constants.EASY_DIFFICULTY;
+		difficulties.put(Constants.EASY_DIFFICULTY,Constants.EASY_TEXT);
+		difficulties.put(Constants.MEDIUM_DIFFICULTY,Constants.MEDIUM_TEXT);
+		difficulties.put(Constants.HARD_DIFFICULTY,Constants.HARD_TEXT);
 	}
 	
 	@Override

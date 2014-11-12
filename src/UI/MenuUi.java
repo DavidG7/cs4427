@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import Constants.Constants;
 import MouseListener.CustomMouseListener;
 import Observer.Enemy;
 import Singleton.Player;
@@ -23,12 +24,12 @@ import Subject.Subject;
 
 public class MenuUi extends Ui {
 
-	private GridLayout grid = new GridLayout(5, 1);
+	private GridLayout grid = new GridLayout(Constants.MENU_OPTIONS_ROWS, Constants.MENU_OPTIONS_COLUMNS);
 	private JPanel panel = new JPanel();
-	private JLabel gameTitle = new JLabel("CORRIDOR HORROR", JLabel.CENTER);
-	private JLabel start = new JLabel("START", JLabel.CENTER);
-	private JLabel options = new JLabel("OPTIONS", JLabel.CENTER);
-	private JLabel exit = new JLabel("EXIT", JLabel.CENTER);
+	private JLabel gameTitle = new JLabel(Constants.GAME_TITLE, JLabel.CENTER);
+	private JLabel start = new JLabel(Constants.START, JLabel.CENTER);
+	private JLabel options = new JLabel(Constants.OPTIONS, JLabel.CENTER);
+	private JLabel exit = new JLabel(Constants.EXIT, JLabel.CENTER);
 	
 	public MenuUi(Difficulty dificulty, Player player,Enemy[] enemies) {
 		super(dificulty, player,enemies);
@@ -41,18 +42,18 @@ public class MenuUi extends Ui {
 	public void draw() {
 		// TODO Auto-generated method stub
         
-		setTitle("Menu");
-		setSize(400, 400);
-		setResizable(true);
+		setTitle(Constants.MENU_TITLE);
+		setSize(Constants.SCREEN_DIMENSIONS,Constants.SCREEN_DIMENSIONS);
+		setResizable(Constants.TRUE);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		panel.setBackground(Color.BLACK);
 		panel.setLayout(grid);
-		gameTitle.setFont(new Font("Serif", Font.PLAIN, 25));
-		start.setFont(new Font("Serif", Font.PLAIN, 20));
-		options.setFont(new Font("Serif", Font.PLAIN, 20));
-		exit.setFont(new Font("Serif", Font.PLAIN, 20));
+		gameTitle.setFont(new Font("Serif", Font.PLAIN, Constants.MENU_OPTIONS_TEXT_SIZE_HEADING));
+		start.setFont(new Font("Serif", Font.PLAIN, Constants.MENU_OPTIONS_TEXT_SIZE));
+		options.setFont(new Font("Serif", Font.PLAIN, Constants.MENU_OPTIONS_TEXT_SIZE));
+		exit.setFont(new Font("Serif", Font.PLAIN, Constants.MENU_OPTIONS_TEXT_SIZE));
 		gameTitle.setForeground(Color.RED);
 		start.setForeground(Color.RED);
 		options.setForeground(Color.RED);
@@ -62,7 +63,7 @@ public class MenuUi extends Ui {
 		panel.add(options);
 		panel.add(exit);
 		add(panel);
-		setVisible(true);
+		setVisible(Constants.TRUE);
         
 		start.addMouseListener(new CustomMouseListener(){
         	@Override

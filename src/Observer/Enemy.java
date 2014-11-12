@@ -16,38 +16,12 @@ public abstract class Enemy implements Observer {
 	public Player player;
 	protected State enemyMoveState;
 	protected Color enemyColor;
-	private int rowPosition;
-	private int colPosition;
+	protected int rowPosition;
+	protected int colPosition;
 
-	public Enemy(Difficulty difficulty, Player player, int[] enemyCoordinates) {
-		difficulty.attach(this);
-		player.attach(this);
-		System.out.println("Enemy attached to difficulty and player");
-		this.enemyMoveState = new EasyMoveState();
-		this.player = player;
-		colPosition = enemyCoordinates[0];
-		rowPosition = enemyCoordinates[1];
-	}
 
-	@Override
-	public abstract void update(Subject subject); /*{
-		// TODO Auto-generated method stub
 
-		if (subject instanceof Difficulty) {
-			int difficulty = ((Difficulty) subject).getDifficulty();
-			if (difficulty == 0) {
-				enemyMoveState = new EasyMoveState();
-			} else if (difficulty == 1) {
-				enemyMoveState = new MediumMoveState();
-			} else {
-				enemyMoveState = new HardMoveState();
-			}
-			System.out.println("Monster movement updated to " + difficulty);
-		} else if (subject instanceof Player) {
-			move();
-		}
-
-	}*/
+	//public abstract void update(Subject subject);
 
 	public void move(boolean forwardOrBack) {
 		enemyMoveState.move(this);
@@ -92,4 +66,6 @@ public abstract class Enemy implements Observer {
 
 	}
 
+
+	
 }

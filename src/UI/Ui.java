@@ -19,8 +19,14 @@ public abstract class Ui extends JFrame implements Observer{
     protected Ui currentScreen;
     protected Enemy[] enemies;
     protected static String displayDifficulty = Constants.EASY_TEXT;
-    
-	
+
+	/*
+	Instantiates the UI
+
+	@param dificulty	the difficulty to be set
+	@param player		an instance of the Player
+	@param enemies		an array of enemies
+	 */
 	public Ui(Difficulty dificulty, Player player,Enemy[] enemies){
 		this.difficulty = dificulty;
 		this.player = player;

@@ -7,7 +7,9 @@ import Constants.Constants;
 import Memento.Memento;
 import Observer.Observer;
 import Subject.Subject;
-
+/*
+The Player
+ */
 public class Player implements Subject {
 
 	private static Player playerInstance = new Player();
@@ -18,6 +20,9 @@ public class Player implements Subject {
 	private int[] previousPosition = Constants.START_POSITION;
 	private String movedBackOrForward = "FORWARD";
 
+	/*
+	Creates a Player object
+	 */
 	private Player() {
 		playerObservers = new ArrayList();
 		rowPosition = 0;// players initial position is (0,0)
@@ -27,6 +32,9 @@ public class Player implements Subject {
 				+ Constants.SPACE + colPosition);
 	}
 
+	/*
+	@return an instance of the Player
+	 */
 	public static Player getInstance() {
 		return playerInstance;
 	}
@@ -58,6 +66,9 @@ public class Player implements Subject {
 		}
 	}
 
+	/*
+	@param direction	the direction the Player wants to move
+	 */
 	public void move(String direction) {
 		previousPosition[0] = rowPosition;
 		previousPosition[1] = colPosition;
@@ -122,14 +133,23 @@ public class Player implements Subject {
 
 	}
 
+	/*
+	@return the Player's Y coordinate on the grid
+	 */
 	public int getPlayerRowCoordinate() {
 		return rowPosition;
 	}
 
+	/*
+	@return the Player's X coordinate on the grid
+	 */
 	public int getPlayerColCoordinate() {
 		return colPosition;
 	}
 
+	/*
+	@return the Player's color
+	 */
 	public Color getColor() {
 		return playerColor;
 	}
@@ -141,6 +161,9 @@ public class Player implements Subject {
 		
 	}
 
+	/*
+	@return the Player's previous position on the grid
+	 */
 	public int[] getPreviousPosition() {
 		// TODO Auto-generated method stub
 		return previousPosition;

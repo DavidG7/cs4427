@@ -37,6 +37,9 @@ public abstract class Enemy implements Observer {
 		return colPosition;
 	}
 
+	/*
+	@param positions	the position on the grid to place the enemy
+	 */
 	public void setEnemyCoordinates(int[] positions) {
 		// TODO Auto-generated method stub
 		this.rowPosition = positions[0];

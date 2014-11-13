@@ -12,8 +12,18 @@ import Subject.Difficulty;
 import Subject.Subject;
 import Constants.Constants;
 
+/*
+A Zombie enemy
+ */
 public class Zombie extends Enemy {
 
+	/*
+	Creates a Zombie enemy object
+
+	@param difficulty		the difficulty the monster wil be set to
+	@param player			the instance of the player
+	@param enemyCoordinates	the location on the grid where the enemy will be created
+	 */
 	public Zombie(Difficulty difficulty, Player player, int[] enemyCoordinates) {
 		//super(difficulty, player, enemyCoordinates)
 		difficulty.attach(this);
@@ -27,6 +37,11 @@ public class Zombie extends Enemy {
 		System.out.println("Zombie at position: " + enemyCoordinates[0] + ","+ enemyCoordinates[1]);
 	}
 
+	/*
+	Implementation of the Observer Interface's update() method
+
+	@param subject	the subject to be updated
+	 */
 	@Override
 	public void update(Subject subject) {
 		// TODO Auto-generated method stub

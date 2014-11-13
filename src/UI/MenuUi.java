@@ -22,6 +22,9 @@ import Singleton.Player;
 import Subject.Difficulty;
 import Subject.Subject;
 
+/*
+The graphic user interface for the menu
+ */
 public class MenuUi extends Ui {
 
 	private GridLayout grid = new GridLayout(Constants.MENU_OPTIONS_ROWS, Constants.MENU_OPTIONS_COLUMNS);
@@ -30,7 +33,14 @@ public class MenuUi extends Ui {
 	private JLabel start = new JLabel(Constants.START, JLabel.CENTER);
 	private JLabel options = new JLabel(Constants.OPTIONS, JLabel.CENTER);
 	private JLabel exit = new JLabel(Constants.EXIT, JLabel.CENTER);
-	
+
+	/*
+	Instantiates the MenuUI
+
+	@param dificulty	the difficulty to be set
+	@param player		an instance of the Player
+	@param enemies		an array of enemies
+	 */
 	public MenuUi(Difficulty dificulty, Player player,Enemy[] enemies) {
 		super(dificulty, player,enemies);
 		// TODO Auto-generated constructor stub
@@ -38,6 +48,9 @@ public class MenuUi extends Ui {
 	     super.currentScreen = this;
 	}
 
+	/*
+	Implementation of UI's draw() method
+	 */
 	@Override
 	public void draw() {
 		// TODO Auto-generated method stub

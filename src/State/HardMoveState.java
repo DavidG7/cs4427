@@ -12,6 +12,10 @@ public class HardMoveState implements State {
 
 	private Player player;
 	private CareTaker careTaker = new CareTaker();
+
+	/*
+	@param enemy	the enemy to move
+	 */
 	@Override
 	public void move(Enemy enemy) {
 		// TODO Auto-generated method stub
@@ -31,6 +35,17 @@ public class HardMoveState implements State {
 		
 	}
 
+	/*
+	Breath-First-Search
+
+	This method calculates the route to the the Player using a Breath-First-Search algorithm
+
+        @param playerRow	the Y coordinate of the Player
+        @param playerCol	the X coordinate of the Player
+        @param enemyRow		the Y coordinate of the enemy
+        @param enemyCol		the X coordinate of the enemy
+        @return the coordinates the enemy will move to
+    */
 	public int[] bfssearch(int playerRow, int playerCol, int enemyRow, int enemyCol) {
 
 		if (enemyRow < playerRow) {

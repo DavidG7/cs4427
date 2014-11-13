@@ -11,6 +11,10 @@ public class MediumMoveState implements State {
 
 	private Player player;
 	private CareTaker careTaker = new CareTaker();
+
+	/*
+	@param enemy	the enemy to move
+	 */
 	@Override
 	public void move(Enemy enemy) {
 		// TODO Auto-generated method stub
@@ -28,8 +32,18 @@ public class MediumMoveState implements State {
 		}
 	}
 
-		
 
+	/*
+	Depth-First-Search
+
+	This method calculates the route to the the Player using a Depth-First-Search algorithm
+
+        @param playerRow	the Y coordinate of the Player
+        @param playerCol	the X coordinate of the Player
+        @param enemyRow		the Y coordinate of the enemy
+        @param enemyCol		the X coordinate of the enemy
+        @return the coordinates the enemy will move to
+    */
 	public int[] dfssearch(int playerRow, int playerCol, int enemyRow,
 			int enemyCol) {
 

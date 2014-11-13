@@ -18,9 +18,18 @@ import Observer.Enemy;
 import Singleton.Player;
 import Subject.Difficulty;
 import Subject.Subject;
-
+/*
+The graphic user interface for the difficulty options
+ */
 public class DifficultyUi extends Ui {
 
+	/*
+	Instantiates the Difficulty UI
+
+	@param dificulty	the difficulty to be set
+	@param player		an instance of the Player
+	@param enemies		an array of enemies
+	 */
 	public DifficultyUi(Difficulty dificulty, Player player,Enemy[] enemies) {
 		// TODO Auto-generated constructor stub
 		super(dificulty, player,enemies);
@@ -38,6 +47,9 @@ public class DifficultyUi extends Ui {
 	JButton back = new JButton(Constants.BACK);
 
 
+	/*
+	Implementation of UI's draw() method
+	 */
 	@Override
 	public void draw() {
 		// TODO Auto-generated method stub

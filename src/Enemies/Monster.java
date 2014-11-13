@@ -14,9 +14,18 @@ import Subject.Difficulty;
 import Subject.Subject;
 import Constants.Constants;
 
-
+/*
+A Monster enemy
+ */
 public class Monster extends Enemy {
 
+	/*
+	Creates a Monster enemy object
+
+	@param difficulty		the difficulty the monster wil be set to
+	@param player			the instance of the player
+	@param enemyCoordinates	the location on the grid where the enemy will be created
+	 */
 	public Monster(Difficulty difficulty, Player player, int[] enemyCoordinates) {
 		// TODO Auto-generated constructor stub
 		difficulty.attach(this);
@@ -30,6 +39,11 @@ public class Monster extends Enemy {
         System.out.println("Monster at position: " + enemyCoordinates[0] + ","+ enemyCoordinates[1]);
 	}
 
+	/*
+	Implementation of the Observer Interface's update() method
+
+	@param subject	the subject to be updated
+	 */
 	@Override
 	public void update(Subject subject) {
 		// TODO Auto-generated method stub

@@ -20,7 +20,7 @@ public class MediumMoveState implements State {
 		
 		if(player.isMovedBackOrForward().equals("FORWARD")){
 			careTaker.add(enemy.saveStateToMemento());
-		enemy.setEnemyCoordinates(dfssearch(player.getPreviousPosition()[0],player.getPreviousPosition()[1],enemy.getEnemyRowPosition(),
+		enemy.setEnemyCoordinates(shadowSearch(player.getPreviousPosition()[0],player.getPreviousPosition()[1],enemy.getEnemyRowPosition(),
 				enemy.getEnemyColPosition()));
 		}else if(player.isMovedBackOrForward().equals("BACK")) {
 	    enemy.getStateFromMemento(careTaker.get(careTaker.getNumberOfMoves()-1));
@@ -30,7 +30,7 @@ public class MediumMoveState implements State {
 
 		
 
-	public int[] dfssearch(int playerRow, int playerCol, int enemyRow,
+	public int[] shadowSearch(int playerRow, int playerCol, int enemyRow,
 			int enemyCol) {
 
 		if (enemyCol < playerCol) {

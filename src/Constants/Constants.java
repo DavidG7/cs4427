@@ -43,6 +43,16 @@ public final class Constants {
 	public static final String MONSTER_MOVEMENT = "Monster movement updated to";
 	public static final String PLAYER_AT= "Player at";
 	
+	public static final String MOVES_UP_OUTPUT = "Player moves up, new position is";
+	public static final String MOVES_DOWN_OUTPUT = "Player moves down, new position is";
+	public static final String MOVES_LEFT_OUTPUT= "Player moves left, new position is";
+	public static final String MOVES_RIGHT_OUTPUT = "Player moves right, new position is";
+	
+	public static final String NEG_MOVES_UP_OUTPUT = "Not possible to move up";
+	public static final String NEG_MOVES_DOWN_OUTPUT = "Not possible to move down";
+	public static final String NEG_MOVES_LEFT_OUTPUT= "Not possible to move left";
+	public static final String NEG_MOVES_RIGHT_OUTPUT = "Not possible to move right";
+	
 	public static final int ALLOWED_MOVES = 20;
 	public static final int DOUBLE_MOVE = 2;
 	public static final int[] START_POSITION = {0,0};

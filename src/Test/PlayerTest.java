@@ -18,14 +18,10 @@ public class PlayerTest {
 
     Player player ;
 
-    @Parameterized.Parameters
-    public void PlayerTest(int rightCount, int downCount, int leftCount, int upCount ) {  //delete this?
-
-    }
-
     @Before
     public void setUp() throws Exception {
         player = Player.getInstance();
+        player.resetPlayerCoordinates();
     }
 
     @Test
@@ -33,7 +29,7 @@ public class PlayerTest {
         int[] expectedResult = new int[] {player.getPlayerRowCoordinate(), player.getPlayerColCoordinate() + 1} ;
         player.move(Constants.RIGHT) ;
         int[] actualResult = new int[] {player.getPlayerRowCoordinate(), player.getPlayerColCoordinate()} ;
-        assertArrayEquals(expectedResult, actualResult) ;
+        assertArrayEquals("Fails if actually result is 9", expectedResult, actualResult) ;
     }
 
     @Test
@@ -43,7 +39,7 @@ public class PlayerTest {
         int[] expectedResult = new int[] {player.getPlayerRowCoordinate(), player.getPlayerColCoordinate() - 1} ;
         player.move(Constants.LEFT) ;
         int[] actualResult = new int[] {player.getPlayerRowCoordinate(), player.getPlayerColCoordinate()} ;
-        assertArrayEquals(expectedResult, actualResult) ;
+        assertArrayEquals("Fails if actually result is 0", expectedResult, actualResult) ;
     }
 
     @Test
@@ -51,7 +47,7 @@ public class PlayerTest {
         int[] expectedResult = new int[] {player.getPlayerRowCoordinate() + 1, player.getPlayerColCoordinate()} ;
         player.move(Constants.DOWN) ;
         int[] actualResult = new int[] {player.getPlayerRowCoordinate(), player.getPlayerColCoordinate()} ;
-        assertArrayEquals(expectedResult, actualResult) ;
+        assertArrayEquals("Fails if actually result is 9", expectedResult, actualResult) ;
     }
 
     @Test
@@ -59,6 +55,6 @@ public class PlayerTest {
         int[] expectedResult = new int[] {player.getPlayerRowCoordinate() - 1 , player.getPlayerColCoordinate()} ;
         player.move(Constants.UP) ;
         int[] actualResult = new int[] {player.getPlayerRowCoordinate(), player.getPlayerColCoordinate()} ;
-        assertArrayEquals(expectedResult, actualResult) ;
+        assertArrayEquals("Fails if actually result is 0", expectedResult, actualResult) ;
     }
 }

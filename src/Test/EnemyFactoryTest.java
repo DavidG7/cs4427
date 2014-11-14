@@ -13,29 +13,25 @@ import static org.junit.Assert.*;
 
 public class EnemyFactoryTest {
 
+    Player player ;
+    Difficulty difficulty ;
     @Before
     public void setUp() throws Exception {
-
+        difficulty = new Difficulty();
+        player = Player.getInstance();
     }
 
     @Test
-    public void testCreateEnemy() throws Exception {
-
-        Difficulty difficulty = new Difficulty();
-        Player player = Player.getInstance();
-
-        int[] monLoc = new int[] {1,1} ;
-
-        //Monster mon = new Monster(difficulty, player, monLoc) ;
-
+     public void testCreateEnemyMonsters() throws Exception {
         EnemyFactory monsterFactory = new EnemyFactory();
-        Enemy[] monsters = monsterFactory.createEnemy(Constants.MONSTER, difficulty,player,1);
+        Enemy[] monsters = monsterFactory.createEnemy(Constants.MONSTER, difficulty,player,4);
+        assertEquals(4, monsters.length);
+    }
 
-
-
-
-        int [] array1 = new int[] {1, 2, 3};    //an example
-        int [] array2 = new int[] {1, 2, 3};
-        assertArrayEquals(array1, array2);
+    @Test
+    public void testCreateEnemyZombies() throws Exception {
+        EnemyFactory monsterFactory = new EnemyFactory();
+        Enemy[] zombies = monsterFactory.createEnemy(Constants.MONSTER, difficulty,player,4);
+        assertEquals(4, zombies.length);
     }
 }

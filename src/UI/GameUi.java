@@ -30,7 +30,7 @@ public class GameUi extends Ui {
 	private JPanel[][] squares;
 	private JPanel panel;
 	private JButton undoButton;
-	private int count = Constants.ALLOWED_MOVES;
+	private int count;
     private Difficulty d ;
     private ArrayList<Enemy> e;
 	JTextArea movesLeft;
@@ -41,7 +41,8 @@ public class GameUi extends Ui {
         this.d = difficulty ;
         this.e = enemies;
         super.currentScreen = this;
-
+        count = Constants.ALLOWED_MOVES ;
+        System.out.println("COUNT IS " + count);
 		// ATTACH AS OBSERVER TO DIFFICULTY AND PLAYER
 		difficulty.attach(this);
 		player.attach(this);
@@ -160,9 +161,16 @@ public class GameUi extends Ui {
 	public void updateMaze() {
 
 		resetGrid(Constants.FALSE);
-		count--;
+        System.out.println("COUNT IN UPODATE MAZE ID" + count);
+        count--;
         if(count >= Constants.ZERO) {
             movesLeft.setText(Integer.toString(count));
+
+        }
+        if(count == Constants.ZERO){
+            Decorator gameUiDecorator = new EnemyTeleportDecorator(this.d,  this.player, this.e, this);
+            gameUiDecorator.draw();
+
         }
 
 
@@ -187,20 +195,17 @@ public class GameUi extends Ui {
 			for(int i = 0;i < super.enemies.size();i++){
 			super.enemies.get(i).setEnemyCoordinates(Enemy.randomEnemyPosition());
 			}
-			
+
 			JOptionPane jop = new JOptionPane();
 			jop.showMessageDialog(this,
 					Constants.GAME_PASSED_RESPONSE);
-			this.dispose();
+
 			Ui userInterface = new MenuUi(difficulty, player, enemies);
 			userInterface.draw();
 
+
 		}
 
-        if(count == Constants.ZERO+1){
-            Decorator gameUiDecorator = new EnemyTeleportDecorator(this.d,  this.player, this.e, this);
-            gameUiDecorator.draw();
-        }
 
 	}
 

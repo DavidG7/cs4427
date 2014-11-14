@@ -28,8 +28,8 @@ public abstract class Ui extends JFrame implements Observer{
         
 	}
 	
-	public void setUserInterface(Ui currentScreen){
-		this.currentScreen = currentScreen;
+	public void setUserInterface(Ui currentScreen) {
+        this.currentScreen = currentScreen;
 		currentScreen.draw();
 	}
 	

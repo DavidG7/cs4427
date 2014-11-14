@@ -14,9 +14,11 @@ public class EnemyTeleportDecorator extends Decorator{
 
     private Ui ui;
 
+
     public EnemyTeleportDecorator(Difficulty dificulty, Player player, ArrayList<Enemy> enemies, Ui uiRef) {
         super(dificulty, player,enemies,uiRef);
         this.ui = uiRef ;
+
     }
     @Override
     public void draw() {
@@ -27,6 +29,7 @@ public class EnemyTeleportDecorator extends Decorator{
     public void doSomethingCool(){
           for(int i = 0; i < super.enemies.size();i++) {
               super.enemies.get(i).doSomethingCool();
+
           }
     }
 

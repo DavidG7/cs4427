@@ -28,16 +28,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="Memento.Memento" project="cs4227GAME" file="/cs4227GAME/src/Memento/Memento.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="217" y="686"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="5" language="java" name="Singleton.Player" project="cs4227GAME" 
+  <class id="4" language="java" name="Singleton.Player" project="cs4227GAME" 
     file="/cs4227GAME/src/Singleton/Player.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="337" y="233"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -46,7 +37,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="Observer.Enemy" project="cs4227GAME" file="/cs4227GAME/src/Observer/Enemy.java" 
+  <class id="5" language="java" name="Observer.Enemy" project="cs4227GAME" file="/cs4227GAME/src/Observer/Enemy.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1169" y="177"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -55,7 +46,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="7" language="java" name="Subject.Subject" project="cs4227GAME" 
+  <interface id="6" language="java" name="Subject.Subject" project="cs4227GAME" 
     file="/cs4227GAME/src/Subject/Subject.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="247" y="-144"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -64,7 +55,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="8" language="java" name="Subject.Difficulty" project="cs4227GAME" 
+  <class id="7" language="java" name="Subject.Difficulty" project="cs4227GAME" 
     file="/cs4227GAME/src/Subject/Difficulty.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="97" y="196"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -73,7 +64,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="9" language="java" name="Observer.Observer" project="cs4227GAME" 
+  <interface id="8" language="java" name="Observer.Observer" project="cs4227GAME" 
     file="/cs4227GAME/src/Observer/Observer.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="676" y="-148"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -82,7 +73,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="10" language="java" name="UI.Ui" project="cs4227GAME" file="/cs4227GAME/src/UI/Ui.java" binary="false" 
+  <class id="9" language="java" name="UI.Ui" project="cs4227GAME" file="/cs4227GAME/src/UI/Ui.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1898" y="185"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -91,7 +82,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="UI.MenuUi" project="cs4227GAME" file="/cs4227GAME/src/UI/MenuUi.java" 
+  <class id="10" language="java" name="UI.MenuUi" project="cs4227GAME" file="/cs4227GAME/src/UI/MenuUi.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2019" y="685"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -100,7 +91,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="UI.GameUi" project="cs4227GAME" file="/cs4227GAME/src/UI/GameUi.java" 
+  <class id="11" language="java" name="UI.GameUi" project="cs4227GAME" file="/cs4227GAME/src/UI/GameUi.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1591" y="726"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -109,7 +100,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="UI.DifficultyUi" project="cs4227GAME" file="/cs4227GAME/src/UI/DifficultyUi.java" 
+  <class id="12" language="java" name="UI.DifficultyUi" project="cs4227GAME" file="/cs4227GAME/src/UI/DifficultyUi.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1802" y="690"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -118,7 +109,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="javax.swing.JFrame" project="CeilingPullFan" 
+  <class id="13" language="java" name="javax.swing.JFrame" project="CeilingPullFan" 
     file="C:/Program Files/Java/jre7/lib/rt.jar" binary="true" corner="BOTTOM_RIGHT">    
     <position height="88" width="95" x="1730" y="-206"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -127,7 +118,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="Enemies.Monster" project="cs4227GAME" file="/cs4227GAME/src/Enemies/Monster.java" 
+  <class id="14" language="java" name="Enemies.Monster" project="cs4227GAME" file="/cs4227GAME/src/Enemies/Monster.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1176" y="613"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -136,7 +127,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="Enemies.Zombie" project="cs4227GAME" file="/cs4227GAME/src/Enemies/Zombie.java" 
+  <class id="15" language="java" name="Enemies.Zombie" project="cs4227GAME" file="/cs4227GAME/src/Enemies/Zombie.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="971" y="617"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -145,7 +136,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="17" language="java" name="State.State" project="cs4227GAME" file="/cs4227GAME/src/State/State.java" 
+  <interface id="16" language="java" name="State.State" project="cs4227GAME" file="/cs4227GAME/src/State/State.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1487" y="180"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -154,7 +145,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="18" language="java" name="State.EasyMoveState" project="cs4227GAME" 
+  <class id="17" language="java" name="State.EasyMoveState" project="cs4227GAME" 
     file="/cs4227GAME/src/State/EasyMoveState.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1298" y="407"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -163,7 +154,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="State.HardMoveState" project="cs4227GAME" 
+  <class id="18" language="java" name="State.HardMoveState" project="cs4227GAME" 
     file="/cs4227GAME/src/State/HardMoveState.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1618" y="431"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -172,7 +163,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="State.MediumMoveState" project="cs4227GAME" 
+  <class id="19" language="java" name="State.MediumMoveState" project="cs4227GAME" 
     file="/cs4227GAME/src/State/MediumMoveState.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1450" y="430"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -181,7 +172,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="21" language="java" name="Command.Command" project="cs4227GAME" 
+  <interface id="20" language="java" name="Command.Command" project="cs4227GAME" 
     file="/cs4227GAME/src/Command/Command.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="583" y="39"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -190,7 +181,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="22" language="java" name="Command.MovePlayerInvoker" project="cs4227GAME" 
+  <class id="21" language="java" name="Command.MovePlayerInvoker" project="cs4227GAME" 
     file="/cs4227GAME/src/Command/MovePlayerInvoker.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="781" y="46"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -199,7 +190,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="23" language="java" name="Command.PlayerMoveCommand" project="cs4227GAME" 
+  <class id="22" language="java" name="Command.PlayerMoveCommand" project="cs4227GAME" 
     file="/cs4227GAME/src/Command/PlayerMoveCommand.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="584" y="229"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -208,7 +199,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="24" language="java" name="MouseListener.CustomMouseListener" project="cs4227GAME" 
+  <class id="23" language="java" name="MouseListener.CustomMouseListener" project="cs4227GAME" 
     file="/cs4227GAME/src/MouseListener/CustomMouseListener.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1993" y="1083"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -217,7 +208,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="25" language="java" name="Factory.EnemyFactory" project="cs4227GAME" 
+  <class id="24" language="java" name="Factory.EnemyFactory" project="cs4227GAME" 
     file="/cs4227GAME/src/Factory/EnemyFactory.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="99" width="214" x="779" y="402"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -226,137 +217,121 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <dependency id="26">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="24"/>  
-  </dependency>  
-  <realization id="27">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="7"/>  
-  </realization>  
-  <generalization id="28">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <dependency id="29">    
+  <dependency id="25">    
     <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="24"/>  
+    <end type="TARGET" refId="23"/>  
   </dependency>  
-  <realization id="30">    
-    <end type="SOURCE" refId="23"/>    
-    <end type="TARGET" refId="21"/>  
+  <realization id="26">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
   </realization>  
+  <generalization id="27">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <dependency id="28">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="23"/>  
+  </dependency>  
+  <realization id="29">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="20"/>  
+  </realization>  
+  <dependency id="30">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
   <dependency id="31">    
-    <end type="SOURCE" refId="25"/>    
+    <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="6"/>  
   </dependency>  
   <dependency id="32">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="7"/>  
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="14"/>  
   </dependency>  
-  <dependency id="33">    
-    <end type="SOURCE" refId="25"/>    
-    <end type="TARGET" refId="15"/>  
-  </dependency>  
+  <realization id="33">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
   <association id="34">    
-    <end type="SOURCE" refId="6" navigable="false">      
+    <end type="SOURCE" refId="5" navigable="false">      
       <attribute id="35" name="enemyMoveState"/>      
       <multiplicity id="36" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
+    <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="37">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="7"/>  
-  </realization>  
-  <generalization id="38">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <association id="39">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="40" name="player"/>      
-      <multiplicity id="41" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="42">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <realization id="43">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="9"/>  
-  </realization>  
-  <generalization id="44">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <dependency id="45">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="24"/>  
-  </dependency>  
-  <generalization id="46">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <generalization id="47">    
+  <generalization id="37">    
     <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="10"/>  
+    <end type="TARGET" refId="9"/>  
   </generalization>  
-  <generalization id="48">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="14"/>  
-  </generalization>  
-  <association id="49">    
+  <association id="38">    
     <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="50" name="command"/>      
-      <multiplicity id="51" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="52">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="53">    
-    <end type="SOURCE" refId="25"/>    
-    <end type="TARGET" refId="16"/>  
-  </dependency>  
-  <realization id="54">    
-    <end type="SOURCE" refId="20"/>    
-    <end type="TARGET" refId="17"/>  
-  </realization>  
-  <realization id="55">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="17"/>  
-  </realization>  
-  <realization id="56">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="17"/>  
-  </realization>  
-  <generalization id="57">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <generalization id="58">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <association id="59">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="60" name="mementoList"/>      
-      <multiplicity id="61" minimum="0" maximum="2147483647"/>    
+      <attribute id="39" name="player"/>      
+      <multiplicity id="40" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="62">    
-    <end type="SOURCE" refId="6"/>    
+  <realization id="41">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="8"/>  
+  </realization>  
+  <generalization id="42">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <dependency id="43">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="23"/>  
+  </dependency>  
+  <generalization id="44">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="45">    
+    <end type="SOURCE" refId="10"/>    
     <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <generalization id="46">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="13"/>  
+  </generalization>  
+  <association id="47">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="48" name="command"/>      
+      <multiplicity id="49" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="50">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <realization id="51">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="16"/>  
+  </realization>  
+  <realization id="52">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="16"/>  
+  </realization>  
+  <realization id="53">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="16"/>  
+  </realization>  
+  <generalization id="54">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="55">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <realization id="56">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="8"/>  
   </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     accessors="true" visibility="true">    

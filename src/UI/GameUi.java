@@ -183,8 +183,11 @@ public class GameUi extends Ui {
 		if (player.getPlayerRowCoordinate() == Constants.GOAL
 				&& player.getPlayerColCoordinate() == Constants.GOAL) {
 			player.resetPlayerCoordinates();
-			super.enemies[0].setEnemyCoordinates(Enemy.randomEnemyPosition());
-			super.enemies[1].setEnemyCoordinates(Enemy.randomEnemyPosition());
+			
+			for(int i = 0;i < super.enemies.length;i++){
+			super.enemies[i].setEnemyCoordinates(Enemy.randomEnemyPosition());
+			}
+			
 			JOptionPane jop = new JOptionPane();
 			jop.showMessageDialog(this,
 					Constants.GAME_PASSED_RESPONSE);

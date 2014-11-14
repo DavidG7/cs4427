@@ -1,5 +1,8 @@
 package State;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Vector;
 import javax.security.sasl.SaslException;
 import Constants.Constants;
@@ -21,7 +24,7 @@ public class HardMoveState implements State {
 		
 		if(player.isMovedBackOrForward().equals("FORWARD")){
 		careTaker.add(enemy.saveStateToMemento());
-		enemy.setEnemyCoordinates(bfssearch(player.getPreviousPosition()[0],player.getPreviousPosition()[1],enemy.getEnemyRowPosition(),
+		enemy.setEnemyCoordinates(aStar(player.getPreviousPosition()[0],player.getPreviousPosition()[1],enemy.getEnemyRowPosition(),
 				enemy.getEnemyColPosition()));
 		}else if(player.isMovedBackOrForward().equals("BACK")) {
 	    enemy.getStateFromMemento(careTaker.get(careTaker.getNumberOfMoves()-1));
@@ -30,23 +33,43 @@ public class HardMoveState implements State {
 
 		
 	}
-
-	public int[] bfssearch(int playerRow, int playerCol, int enemyRow, int enemyCol) {
-
-		if (enemyRow < playerRow) {
-			enemyRow++;
-		} else if (enemyRow > playerRow) {
-			enemyRow--;
-		} else if (enemyRow == playerRow && enemyCol < playerCol) {
-			enemyCol++;
-		} else if (enemyRow == playerRow && enemyCol > playerCol) {
-			enemyCol--;
-		} else {
-			System.out.println("Game over");
-		}
-		int[] result = new int[2];
-		result[0] = enemyRow;
-		result[1] = enemyCol;
-		return result;
-	}
+	
+	
+	public int[] aStar(int playerRow,int playerCol,int enemyRow, int enemyCol){
+	    
+        HashMap<String, int[]> neighbours = new HashMap<String, int[]>();
+        neighbours.put("up", new int[]{enemyRow+1,enemyCol});
+        neighbours.put("down", new int[]{enemyRow-1,enemyCol});
+        neighbours.put("right", new int[]{enemyRow,enemyCol+1});
+        neighbours.put("left", new int[]{enemyRow,enemyCol-1});
+        
+        int minimum = 100;
+        int[] desiredPosition = null;
+        
+        Iterator it = neighbours.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pairs = (Map.Entry)it.next();
+            System.out.println(pairs.getKey() + " = " + pairs.getValue());
+            it.remove(); // avoids a ConcurrentModificationException
+            System.out.println(manhattanDistance(new int[]{playerRow,playerCol},(int[])pairs.getValue()));
+            int tempMinimum = manhattanDistance(new int[]{playerRow,playerCol},(int[])pairs.getValue());
+            
+            if(tempMinimum < minimum){
+            	minimum = tempMinimum;
+            	desiredPosition = (int[]) pairs.getValue();
+            }
+        }
+        System.out.println(desiredPosition[0]+ " " + desiredPosition[1]);
+        
+    	return desiredPosition;
+		
+    	
+    }
+    
+    public int manhattanDistance(int[] player,int[] enemy){
+		int rowPosition = Math.abs(enemy[0]-player[0]);
+		int colPosition = Math.abs(enemy[1]-player[1]);
+		
+		return colPosition+rowPosition;
+    }
 }

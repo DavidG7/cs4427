@@ -78,10 +78,10 @@ public class Player implements Subject {
 		// validate if possible to move in this direction
 		if (colPosition != 9) {
 			colPosition++;
-			System.out.println("Player moves right, new position is "
+			System.out.println(Constants.MOVES_RIGHT_OUTPUT + Constants.SPACE
 					+ rowPosition + "," + colPosition);
 		} else {
-			System.out.println("Not possible to move right");
+			System.out.println(Constants.NEG_MOVES_RIGHT_OUTPUT);
 		}
 
 	}
@@ -90,10 +90,10 @@ public class Player implements Subject {
 		// validate if possible to move in this direction
 		if (colPosition != 0) {
 			colPosition--;
-			System.out.println("Player moves left, new position is "
+			System.out.println(Constants.MOVES_LEFT_OUTPUT + Constants.SPACE
 					+ rowPosition + "," + colPosition);
 		} else {
-			System.out.println("Not possible to move left");
+			System.out.println(Constants.NEG_MOVES_LEFT_OUTPUT);
 		}
 
 	}
@@ -102,10 +102,10 @@ public class Player implements Subject {
 		// validate if possible to move in this direction
 		if (rowPosition != 9) {
 			rowPosition++;
-			System.out.println("Player moves down, new position is "
+			System.out.println(Constants.MOVES_DOWN_OUTPUT + Constants.SPACE
 					+ rowPosition + "," + colPosition);
 		} else {
-			System.out.println("Not possible to move down");
+			System.out.println(Constants.NEG_MOVES_DOWN_OUTPUT);
 		}
 
 	}
@@ -114,10 +114,10 @@ public class Player implements Subject {
 		// validate if possible to move in this direction
 		if (rowPosition != 0) {
 			rowPosition--;
-			System.out.println("Player moves up, new position is "
+			System.out.println(Constants.MOVES_UP_OUTPUT + Constants.SPACE
 					+ rowPosition + "," + colPosition);
 		} else {
-			System.out.println("Not possible to move up");
+			System.out.println(Constants.NEG_MOVES_UP_OUTPUT);
 		}
 
 	}
@@ -155,9 +155,9 @@ public class Player implements Subject {
 		previousPosition[1] = this.colPosition;
 		this.rowPosition = Memento.getRowState();
 		this.colPosition = Memento.getColState();
-		movedBackOrForward = "BACK";
+		movedBackOrForward = Constants.BACK;
 		notifyObservers();
-		movedBackOrForward = "FORWARD";
+		movedBackOrForward = Constants.FORWARD;
 	}
 
 	public String isMovedBackOrForward() {

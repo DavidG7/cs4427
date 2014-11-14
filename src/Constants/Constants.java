@@ -6,6 +6,8 @@ public final class Constants {
 	public static final int MEDIUM_DIFFICULTY = 1;
 	public static final int HARD_DIFFICULTY = 2;
 
+    public static final int ZERO = 0;
+
 	public static final String GAME_TITLE = "MAZE RUNNER";
 	public static final String START = "START";
 	public static final String OPTIONS = "OPTIONS";

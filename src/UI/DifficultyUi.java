@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 
 import javax.swing.JButton;
@@ -21,7 +22,7 @@ import Subject.Subject;
 
 public class DifficultyUi extends Ui {
 
-	public DifficultyUi(Difficulty dificulty, Player player,Enemy[] enemies) {
+	public DifficultyUi(Difficulty dificulty, Player player,ArrayList<Enemy> enemies) {
 		// TODO Auto-generated constructor stub
 		super(dificulty, player,enemies);
 		dificulty.attach(this);

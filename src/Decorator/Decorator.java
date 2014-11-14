@@ -7,26 +7,22 @@ import Subject.Difficulty;
 
 import UI.Ui;
 
+import java.awt.*;
+import java.util.ArrayList;
+
 /**
  * Created by Wesley on 12/11/2014.
  */
-public class Decorator extends Ui{
+public abstract class Decorator extends Ui{
 
-    private Ui ui= null ;
+    private Ui ui;
 
-    public Decorator(Difficulty dificulty, Player player, Enemy[] enemies, Ui uiRef) {
+    public Decorator(Difficulty dificulty, Player player, ArrayList<Enemy> enemies, Ui uiRef) {
         super(dificulty, player,enemies);
         this.ui = uiRef ;
     }
 
     @Override
-    public void draw(){
-            ui.draw() ;
-    }
+    public abstract void draw();
 
-
-    @Override
-    public void update(Subject subject) {
-        // TODO Auto-generated method stub
-    }
 }

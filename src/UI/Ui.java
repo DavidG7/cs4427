@@ -17,11 +17,11 @@ public abstract class Ui extends JFrame implements Observer{
 	protected Player player;
 	protected Difficulty difficulty;
     protected Ui currentScreen;
-    protected Enemy[] enemies;
+    protected ArrayList<Enemy> enemies;
     protected static String displayDifficulty = Constants.EASY_TEXT;
     
 	
-	public Ui(Difficulty dificulty, Player player,Enemy[] enemies){
+	public Ui(Difficulty dificulty, Player player,ArrayList<Enemy> enemies){
 		this.difficulty = dificulty;
 		this.player = player;
 		this.enemies = enemies;
@@ -34,7 +34,4 @@ public abstract class Ui extends JFrame implements Observer{
 	}
 	
 	public abstract void draw();
-	
-
-
 }

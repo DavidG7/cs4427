@@ -66,6 +66,10 @@ public abstract class Enemy implements Observer {
 
 	}
 
+    public abstract void doSomethingCool();
+
+
+
 
 	
 }

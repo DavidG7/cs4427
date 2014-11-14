@@ -47,5 +47,9 @@ public class Monster extends Enemy {
 			move(true);
 		}
 	}
-	
+
+    @Override
+    public void doSomethingCool() {
+        this.setEnemyCoordinates(randomEnemyPosition());
+    }
 }

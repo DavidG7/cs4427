@@ -45,5 +45,9 @@ public class Zombie extends Enemy {
 		}
 	}
 
-	
+
+    @Override
+    public void doSomethingCool() {
+        this.setEnemyCoordinates(randomEnemyPosition());
+    }
 }

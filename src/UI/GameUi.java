@@ -6,20 +6,20 @@ import javax.swing.*;
 import Command.MovePlayerInvoker;
 import Command.PlayerMoveCommand;
 import Constants.Constants;
-
-import Decorator.wallDecorator;
+import Decorator.EnemyTeleportDecorator;
 import Memento.CareTaker;
 import MouseListener.CustomMouseListener;
 import Observer.Enemy;
 import Singleton.Player;
 import Subject.Difficulty;
-import Decorator.wallDecorator;
 import Subject.Subject;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import Decorator.Decorator;
 
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 public class GameUi extends Ui {
 
@@ -32,11 +32,10 @@ public class GameUi extends Ui {
 	private JButton undoButton;
 	private int count = Constants.ALLOWED_MOVES;
     private Difficulty d ;
-    int c = 5 ;
-    private Enemy[] e;
+    private ArrayList<Enemy> e;
 	JTextArea movesLeft;
 
-	public GameUi(Difficulty difficulty, Player player, Enemy[] enemies) {
+	public GameUi(Difficulty difficulty, Player player, ArrayList<Enemy> enemies) {
 		// TODO Auto-generated constructor stub
 		super(difficulty, player, enemies);
         this.d = difficulty ;
@@ -82,16 +81,16 @@ public class GameUi extends Ui {
 		panel.add(difficultyLED);
 		
 
-		for (int i = 0; i < super.enemies.length; i++) {
-			squares[super.enemies[i].getEnemyRowPosition()][super.enemies[i]
-					.getEnemyColPosition()].setBackground(super.enemies[i]
-					.getColor());
+		for (int i = 0; i < super.enemies.size(); i++) {
+			squares[super.enemies.get(i).getEnemyRowPosition()][super.enemies.get(i)
+					.getEnemyColPosition()].setBackground(super.enemies.get(i)
+                    .getColor());
 		}
 		
 		panel.add(undoButton);
 		
 		movesLeft= new JTextArea();
-		movesLeft.setText("count" + (Integer.toString(count)));
+		movesLeft.setText(Integer.toString(count));
 		panel.add(movesLeft);
 
         
@@ -162,13 +161,14 @@ public class GameUi extends Ui {
 
 		resetGrid(Constants.FALSE);
 		count--;
-		movesLeft.setText(Integer.toString(count));
-		
+        if(count >= Constants.ZERO) {
+            movesLeft.setText(Integer.toString(count));
+        }
 
 
-		for (int i = 0; i < super.enemies.length; i++) {
-			squares[super.enemies[i].getEnemyRowPosition()][super.enemies[i]
-					.getEnemyColPosition()].setBackground(super.enemies[i]
+		for (int i = 0; i < super.enemies.size(); i++) {
+			squares[super.enemies.get(i).getEnemyRowPosition()][super.enemies.get(i)
+					.getEnemyColPosition()].setBackground(super.enemies.get(i)
 					.getColor());
 		}
 
@@ -184,8 +184,8 @@ public class GameUi extends Ui {
 				&& player.getPlayerColCoordinate() == Constants.GOAL) {
 			player.resetPlayerCoordinates();
 			
-			for(int i = 0;i < super.enemies.length;i++){
-			super.enemies[i].setEnemyCoordinates(Enemy.randomEnemyPosition());
+			for(int i = 0;i < super.enemies.size();i++){
+			super.enemies.get(i).setEnemyCoordinates(Enemy.randomEnemyPosition());
 			}
 			
 			JOptionPane jop = new JOptionPane();
@@ -197,11 +197,9 @@ public class GameUi extends Ui {
 
 		}
 
-
-        if(count == 0) {
-            System.out.println("Wall Decorator here");
-            wallDecorator Ui = new wallDecorator(this.d, this.player, this.e, this);
-            Ui.draw();
+        if(count == Constants.ZERO+1){
+            Decorator gameUiDecorator = new EnemyTeleportDecorator(this.d,  this.player, this.e, this);
+            gameUiDecorator.draw();
         }
 
 	}

@@ -37,11 +37,9 @@ public class Client
         Player player = Player.getInstance();
        
         EnemyFactory monsterFactory = new EnemyFactory();
-        Enemy[] monsters = monsterFactory.createEnemy(Constants.MONSTER, difficulty,player,1);
-        Enemy[] zombies = monsterFactory.createEnemy(Constants.ZOMBIE, difficulty,player,1);
-        
-        Enemy[] enemies = concat(zombies,monsters);
-     
+        ArrayList<Enemy> enemies= monsterFactory.createEnemy(Constants.MONSTER, difficulty,player,1);
+        enemies.addAll(monsterFactory.createEnemy(Constants.ZOMBIE, difficulty,player,1));
+
         Ui userInterface = new MenuUi(difficulty, player, enemies);
         userInterface.draw();
     	
@@ -94,15 +92,7 @@ public class Client
     	
     	
     }*/
-    public static Enemy[] concat(Enemy[] A, Enemy[] B) {
-    	   int aLen = A.length;
-    	   int bLen = B.length;
-    	   Enemy[] enemies= new Enemy[aLen+bLen];
-    	   System.arraycopy(A, 0, enemies, 0, aLen);
-    	   System.arraycopy(B, 0, enemies, aLen, bLen);
-    	   return enemies;
-    	}
-    
+
    
 }
 

@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -31,7 +32,7 @@ public class MenuUi extends Ui {
 	private JLabel options = new JLabel(Constants.OPTIONS, JLabel.CENTER);
 	private JLabel exit = new JLabel(Constants.EXIT, JLabel.CENTER);
 	
-	public MenuUi(Difficulty dificulty, Player player,Enemy[] enemies) {
+	public MenuUi(Difficulty dificulty, Player player,ArrayList<Enemy> enemies) {
 		super(dificulty, player,enemies);
 		// TODO Auto-generated constructor stub
 		// DOESNT OBSERVER PLAYER OR DIFFICULTY

@@ -1,11 +1,9 @@
 package UI;
 
-import javax.swing.*;
-
-
 import Command.MovePlayerInvoker;
 import Command.PlayerMoveCommand;
 import Constants.Constants;
+import Decorator.Decorator;
 import Decorator.EnemyTeleportDecorator;
 import Memento.CareTaker;
 import MouseListener.CustomMouseListener;
@@ -13,14 +11,17 @@ import Observer.Enemy;
 import Singleton.Player;
 import Subject.Difficulty;
 import Subject.Subject;
+
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
-import Decorator.Decorator;
-
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+/*
+The graphic user interface for the game
+ */
 public class GameUi extends Ui {
 
 	private Player player;
@@ -35,6 +36,12 @@ public class GameUi extends Ui {
     private ArrayList<Enemy> e;
 	JTextArea movesLeft;
 
+    /*
+	Instantiates the Game UI
+	@param difficulty	the difficulty to be set
+	@param player		an instance of the Player
+	@param enemies		an array of enemies
+	 */
 	public GameUi(Difficulty difficulty, Player player, ArrayList<Enemy> enemies) {
 		// TODO Auto-generated constructor stub
 		super(difficulty, player, enemies);
@@ -56,6 +63,9 @@ public class GameUi extends Ui {
 		undoButton = new JButton();
 	}
 
+    /*
+	Implementation of UI's draw() method
+	 */
 	@Override
 	public void draw() {
 		// TODO Auto-generated method stub
@@ -185,9 +195,6 @@ public class GameUi extends Ui {
 		squares[player.getPlayerRowCoordinate()][player.getPlayerColCoordinate()]
 				.setBackground(player.getColor());
 
-		/*
-		 * WESLEYS CODE
-		 */
 		if (player.getPlayerRowCoordinate() == Constants.GOAL
 				&& player.getPlayerColCoordinate() == Constants.GOAL) {
 			player.resetPlayerCoordinates();
@@ -202,13 +209,13 @@ public class GameUi extends Ui {
 
 			Ui userInterface = new MenuUi(difficulty, player, enemies);
 			userInterface.draw();
-
-
 		}
-
-
 	}
 
+    /*
+	Sets up the grid
+	@param needToInitialze	whether the grid needs to be reset or not
+	 */
 	public void resetGrid(boolean needToInitialze) {
 		for (int i = 0; i < Constants.INT_ROWS; i++) {
 			for (int j = 0; j < Constants.INT_COLS; j++) {

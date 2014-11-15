@@ -1,8 +1,5 @@
 package Factory;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import Constants.Constants;
 import Enemies.Monster;
 import Enemies.Zombie;
@@ -10,9 +7,21 @@ import Observer.Enemy;
 import Singleton.Player;
 import Subject.Difficulty;
 
+import java.util.ArrayList;
 
+/*
+Factory Method
+ */
 public class EnemyFactory {
 
+    /*
+	Creates enemies
+	@param type				the type of enemy that is to be created
+	@param difficulty		the difficulty the enemy will be set to
+	@param player			an instance of the player
+	@param numberOfEnemies	the number of enemies to create
+	@return an array of enemies
+	 */
 	public ArrayList<Enemy> createEnemy(String type, Difficulty difficulty,Player player, int numberOfEnemies) {
 		ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 		int[] playerCoordinates;

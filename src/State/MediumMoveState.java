@@ -28,8 +28,14 @@ public class MediumMoveState implements State {
 		}
 	}
 
-		
+    /*
 
+    @param playerRow	the Y coordinate of the Player
+    @param playerCol	the X coordinate of the Player
+    @param enemyRow		the Y coordinate of the enemy
+    @param enemyCol		the X coordinate of the enemy
+    @return the coordinates the enemy will move to
+    */
 	public int[] shadowSearch(int playerRow, int playerCol, int enemyRow,
 			int enemyCol) {
 
